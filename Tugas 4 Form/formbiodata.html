@@ -7,7 +7,7 @@
             text-align: left;
         }
         td {
-            padding: 8px;
+            padding: 3px;
         }
     </style>
 </head>
@@ -46,14 +46,14 @@ Bintang Fathir
         <tr>
             <td><label>Tempat Lahir:</label></td>
             <td>
-                <select name="provinsi">
+                <select name="provinsi" required>
                     <option value="">Pilih Provinsi</option>
                     <option value="Jawa Timur">Jawa Timur</option>
                     <option value="Jawa Barat">Jawa Barat</option>
                     <option value="Osaka">Osaka</option>
                     <option value="Fukuoka">Fukuoka</option>
                 </select>
-                <select name="kota">
+                <select name="kota" required>
                     <option value="">Pilih Kota</option>
                     <option value="Banyuwangi">Banyuwangi</option>
                     <option value="Jember">Jember</option>
@@ -63,6 +63,10 @@ Bintang Fathir
         <tr>
             <td><label for="tanggallahir">Tanggal Lahir:</label></td>
             <td><input type="date" id="tanggallahir" name="tanggallahir"></td>
+        </tr>
+        <tr>
+            <td><label for="umur">Umur:</label></td>
+            <td><input type="number" id="umur" name="umur"></td>
         </tr>
         <tr>
             <td><label>Jenis Kelamin:</label></td>
@@ -76,7 +80,7 @@ Bintang Fathir
         <tr>
             <td><label for="agama">Agama:</label></td>
             <td>
-                <select id="agama" name="agama">
+                <select id="agama" name="agama" required>
                     <option value="">Pilih Agama</option>
                     <option>Islam</option>
                     <option>Kristen Katolik</option>
@@ -92,9 +96,9 @@ Bintang Fathir
         <tr>
             <td><label>Hobi:</label></td>
             <td>
-                <input type="checkbox" name="hobi1" id="hobi1" value="1">
+                <input type="checkbox" name="hobi" id="hobi1" value="mancing">
                 <label for="hobi1">Mancing</label>
-                <input type="checkbox" name="hobi2" id="hobi2" value="2">
+                <input type="checkbox" name="hobi" id="hobi2" value="tdr">
                 <label for="hobi2">Tidur</label>
             </td>
         </tr>
