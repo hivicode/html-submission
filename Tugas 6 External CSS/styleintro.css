@@ -1,11 +1,14 @@
-<style>
-    table {
+table {
         text-align: left;
     }
-    td {
+td {
         padding: 3px;
     }
-    body {
-        background-color: #78ff5e;
+body {
+        background-color: #6eff51;
     }
-</style>
+header {
+    background-color: #535353;
+    text-align: center;
+    padding: 10px;
+}
