@@ -1,0 +1,324 @@
+/* General Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 2.5em;
+}
+
+/* Transform Effects */
+.transform-section {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    border: 3px solid #e74c3c;
+}
+
+.transform-box {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.rotate {
+    background: linear-gradient(45deg, #FF416C, #FF4B2B);
+}
+
+.scale {
+    background: linear-gradient(45deg, #4776E6, #8E54E9);
+}
+
+.skew {
+    background: linear-gradient(45deg, #00B4DB, #0083B0);
+}
+
+.rotate:hover {
+    transform: rotate(180deg);
+}
+
+.scale:hover {
+    transform: scale(1.2);
+}
+
+.skew:hover {
+    transform: skew(20deg, 10deg);
+}
+
+/* Transition Effects */
+.transition-section {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    border: 3px solid #f1c40f;
+}
+
+.transition-box {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.bounce {
+    background: linear-gradient(45deg, #11998e, #38ef7d);
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.glow {
+    background: linear-gradient(45deg, #FC466B, #3F5EFB);
+    transition: box-shadow 0.3s ease;
+}
+
+.slide {
+    background: linear-gradient(45deg, #F09819, #EDDE5D);
+    transition: transform 0.5s ease;
+}
+
+.bounce:hover {
+    transform: translateY(-20px);
+}
+
+.glow:hover {
+    box-shadow: 0 0 30px #FC466B;
+}
+
+.slide:hover {
+    transform: translateX(50px);
+}
+
+/* Animation Effects */
+.animation-section {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    border: 3px solid #e67e22;
+}
+
+.animation-box {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.pulse {
+    background: linear-gradient(45deg, #FF512F, #DD2476);
+    animation: pulse 2s infinite;
+}
+
+.spin {
+    background: linear-gradient(45deg, #834d9b, #d04ed6);
+    animation: spin 3s linear infinite;
+}
+
+.wave {
+    background: linear-gradient(45deg, #1FA2FF, #12D8FA);
+    animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Layout */
+.transform-section,
+.transition-section,
+.animation-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    margin: 20px;
+}
+
+/* Hover effects for sections */
+.transform-section:hover,
+.transition-section:hover,
+.animation-section:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+#normal {
+    width: 300px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+#matrix {
+    width: 300px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+    transform: matrix(1, -0.3, 0, 1, 0, 0);
+}
+
+#matrix2 {
+    width: 300px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+    transform: matrix(1, 0, 0.5, 1, 150, 0);
+}
+
+#trans1 {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+    transition: width 2s;
+    transition-timing-function: linear;
+}
+
+#trans1:hover {
+    width: 300px;
+}
+
+#trans2 {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+    transition: width 2s;
+    transition-timing-function: ease;
+}
+
+#trans2:hover {
+    width: 300px;
+}
+
+#trans3 {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+    transition: width 2s;
+    transition-timing-function: ease-in;
+}
+
+#trans3:hover {
+    width: 300px;
+}
+
+#trans4 {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+    transition: width 2s;
+    transition-timing-function: ease-out;
+}
+
+#trans4:hover {
+    width: 300px;
+}
+
+#trans5 {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+    transition: width 2s;
+    transition-timing-function: ease-in-out;
+}
+
+#trans5:hover {
+    width: 300px;
+}
+
+#animasi {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+    position: relative;
+    animation-name: animasi;
+    animation-duration: 5s;
+}
+
+@keyframes animasi {
+    0% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+    25% {
+        background-color: yellow;
+        left: 200px;
+        top: 0px;
+    }
+    50% {
+        background-color: blue;
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        background-color: green;
+        left: 0px;
+        top: 200px;
+    }
+    100% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+} 
