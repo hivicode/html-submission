@@ -1,0 +1,39 @@
+body {
+  background: linear-gradient(120deg, #f0f4f8 0%, #e0e7ef 100%);
+  min-height: 100vh;
+}
+
+.card {
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  border: none;
+}
+
+.card-header {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.4rem;
+  border-radius: 18px 18px 0 0;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+  border: none;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+}
+
+footer {
+  font-size: 1rem;
+  color: #555;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+}
+
+input.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.15);
+} 
