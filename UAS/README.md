@@ -1,6 +1,7 @@
 # UAS Desain Web
 
 Website ini adalah hasil UAS Desain Web yang menampilkan profil, discography, filmography, dan arsip NewJeans.
+Deploy: tokki.vercel.app
 
 ## Struktur Folder
 - `index.html` — Halaman utama
