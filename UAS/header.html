@@ -1,0 +1,301 @@
+<!-- Top Gradient Overlay -->
+<div class="fixed top-0 left-0 w-full h-28 bg-gradient-to-b from-black/90 via-black/40 via-black/20 to-transparent z-40 pointer-events-none"></div>
+
+<!-- Desktop Header Logo (only on non-home pages) -->
+<div class="fixed top-5 left-4 z-50 hidden lg:block flex items-center" id="desktop-header-logo">
+    <a href="index.html" class="desktop-logo">
+        <img src="img/header/main-bg-text.png" alt="NewJeans" class="h-9">
+    </a>
+</div>
+
+<!-- Mobile Header Logo (all pages) -->
+<div class="fixed top-5 left-4 z-50 lg:hidden flex items-center">
+    <a href="index.html" class="mobile-logo">
+        <img src="img/header/main-bg-text.png" alt="NewJeans" class="h-9">
+    </a>
+</div>
+
+
+
+<!-- Floating Navigation Pills -->
+<div class="fixed top-4 right-4 z-50 flex items-center space-x-3">
+    <!-- Main Navigation Pill -->
+    <div class="nav-pill">
+        <div class="flex items-center space-x-6 px-6 py-3">
+            <a href="index.html" title="Home" class="nav-icon-link">
+                <img src="img/header/home.png" alt="Home" class="w-6 h-6">
+            </a>
+            <a href="profile.html" title="Profile" class="nav-icon-link">
+                <img src="img/header/account_circle.png" alt="Profile" class="w-6 h-6">
+            </a>
+            <a href="discography.html" title="Discography" class="nav-icon-link">
+                <img src="img/header/library_music.png" alt="Discography" class="w-6 h-6">
+            </a>
+            <a href="filmography.html" title="Filmography" class="nav-icon-link">
+                <img src="img/header/movie.png" alt="Filmography" class="w-6 h-6">
+            </a>
+            <a href="archive.html" title="Archive" class="nav-icon-link">
+                <img src="img/header/archive.png" alt="Archive" class="w-6 h-6">
+            </a>
+        </div>
+    </div>
+    
+    <!-- Let's Talk Pill -->
+    <div class="nav-pill">
+        <div class="flex items-center justify-center space-x-2 px-6 py-3">
+            <img src="img/header/app-icon-3.png" alt="Phoning" class="w-6 h-6">
+            <span class="text-white font-light text-sm">Let's talk!</span>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Menu Button (Hidden on desktop) -->
+<div class="fixed top-4 right-4 z-50 md:hidden">
+    <button id="mobile-menu-btn" class="mobile-menu-btn">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="fixed top-16 right-4 z-50 md:hidden hidden">
+    <div class="mobile-menu-pill">
+        <div class="px-4 py-3 space-y-2">
+            <a href="index.html" title="Home" class="mobile-nav-link">
+                <img src="img/header/home.png" alt="Home" class="w-5 h-5">
+                <span>Home</span>
+            </a>
+            <a href="profile.html" title="Profile" class="mobile-nav-link">
+                <img src="img/header/account_circle.png" alt="Profile" class="w-5 h-5">
+                <span>Profile</span>
+            </a>
+            <a href="discography.html" title="Discography" class="mobile-nav-link">
+                <img src="img/header/library_music.png" alt="Discography" class="w-5 h-5">
+                <span>Discography</span>
+            </a>
+            <a href="filmography.html" title="Filmography" class="mobile-nav-link">
+                <img src="img/header/movie.png" alt="Filmography" class="w-5 h-5">
+                <span>Filmography</span>
+            </a>
+            <a href="archive.html" title="Archive" class="mobile-nav-link">
+                <img src="img/header/archive.png" alt="Archive" class="w-5 h-5">
+                <span>Archive</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Navigation Pill Styles */
+.nav-pill {
+    background: #1a1a1a;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.nav-pill:hover {
+    background: #0a0a0a;
+}
+
+.nav-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.nav-icon-link img {
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+}
+
+.nav-icon-link:hover img {
+    filter: brightness(0) invert(1) brightness(1.2);
+    transform: scale(1.1);
+}
+
+.nav-icon-link.active img {
+    filter: brightness(0) invert(1) brightness(1.5);
+    transform: scale(1.1);
+}
+
+.nav-icon-link.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* Mobile Menu Styles */
+.mobile-menu-btn {
+    background: #1a1a1a;
+    border-radius: 50px;
+    padding: 8px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background: #0a0a0a;
+}
+
+.mobile-menu-pill {
+    background: #1a1a1a;
+    border-radius: 20px;
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    space-x: 3;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-link img {
+    filter: brightness(0) invert(1);
+    margin-right: 8px;
+}
+
+.mobile-nav-link.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.mobile-nav-link.active img {
+    filter: brightness(0) invert(1) brightness(1.5);
+}
+
+/* Logo Pill Styles */
+.logo-pill {
+    background: #1a1a1a;
+    border-radius: 50px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.logo-pill:hover {
+    background: #0a0a0a;
+    transform: scale(1.05);
+}
+
+/* Desktop Logo Styles (no pill) */
+.desktop-logo {
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.desktop-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Mobile Logo Styles (no pill) */
+.mobile-logo {
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.mobile-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Ensure logo containers are visible */
+#desktop-header-logo {
+    display: flex !important;
+}
+
+#desktop-header-logo:not([style*="display: none"]) {
+    display: flex !important;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-pill {
+        display: none;
+    }
+
+}
+</style>
+
+<script>
+  // Mobile menu toggle
+  setTimeout(function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if(mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.onclick = () => mobileMenu.classList.toggle('hidden');
+    }
+  }, 100);
+
+  // Highlight active nav after DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    const path = location.pathname.split('/').pop() || 'index.html';
+    
+    // Hide desktop header logo on home page
+    const desktopHeaderLogo = document.getElementById('desktop-header-logo');
+    if(desktopHeaderLogo) {
+      if(path === 'index.html') {
+        desktopHeaderLogo.style.display = 'none';
+      } else {
+        desktopHeaderLogo.style.display = 'flex';
+      }
+    }
+    
+    // Set header title based on current page
+    const headerTitle = document.getElementById('header-title');
+    const headerTitleContainer = document.getElementById('header-title-container');
+    if(headerTitle && headerTitleContainer) {
+      const pageTitles = {
+        'index.html': '',
+        'profile.html': 'Profile',
+        'discography.html': 'Discography',
+        'filmography.html': 'Filmography',
+        'archive.html': 'Archive'
+      };
+      const title = pageTitles[path] || '';
+      headerTitle.textContent = title;
+      
+      // Show/hide container based on title
+      if(title) {
+        headerTitleContainer.style.display = 'flex';
+        console.log('Header title set to:', title);
+      } else {
+        headerTitleContainer.style.display = 'none';
+        console.log('Header title hidden (home page)');
+      }
+    }
+    
+    // Clear all active states first
+    document.querySelectorAll('.nav-icon-link, .mobile-nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    
+    // Add active state to current page
+    document.querySelectorAll('.nav-icon-link, .mobile-nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      if(href === path) {
+        link.classList.add('active');
+        console.log('Active tab:', href); // Debug log
+      }
+    });
+  });
+</script> 

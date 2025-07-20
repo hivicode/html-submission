@@ -1,0 +1,92 @@
+/* Global fix for typing cursor issue */
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Allow text selection for specific elements */
+input, textarea, [contenteditable="true"] {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    cursor: text;
+}
+
+/* Keep pointer cursor for clickable elements */
+a, button, [role="button"], .clickable {
+    cursor: pointer;
+}
+
+/* Prevent focus outline on non-interactive elements */
+*:focus {
+    outline: none;
+}
+
+/* Remove focus outline for all elements */
+*:focus {
+    outline: none;
+}
+
+/* Default font for all text (non-Korean) */
+body, html {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Ensure all elements inherit SF Pro Display by default */
+* {
+    font-family: inherit;
+}
+
+/* Korean text font settings */
+/* Apply Noto Sans KR to all Korean text */
+[lang="ko"], 
+.korean-text,
+.kr-text,
+.korean,
+.kr {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Auto-detect Korean characters and apply font */
+*:contains("가"), *:contains("나"), *:contains("다"), *:contains("라"), *:contains("마"),
+*:contains("바"), *:contains("사"), *:contains("아"), *:contains("자"), *:contains("차"),
+*:contains("카"), *:contains("타"), *:contains("파"), *:contains("하"), *:contains("뉴진스"),
+*:contains("뉴"), *:contains("진"), *:contains("스"), *:contains("토키"), *:contains("어도어") {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Specific Korean text elements */
+h1:contains("뉴진스"), h2:contains("뉴진스"), h3:contains("뉴진스"),
+p:contains("뉴진스"), span:contains("뉴진스"), div:contains("뉴진스") {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Korean text font settings - only for elements with korean-text class */
+.korean-text, .kr-text, .korean, .kr,
+[lang="ko"] {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Ensure specific elements use SF Pro Display */
+h1, h2, h3, h4, h5, h6,
+.title, .heading, .subtitle,
+.countdown-label, .widget-title,
+.username, .timestamp {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Only apply Korean font to elements that actually contain Korean text */
+.korean-text, .kr-text, .korean, .kr,
+[lang="ko"] {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+} 

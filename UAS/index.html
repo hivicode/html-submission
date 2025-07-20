@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewJeans - Official Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/sf-pro-display.css">
+    <link rel="stylesheet" href="fonts/noto-sans-kr.css">
+    <link rel="stylesheet" href="global-fix.css">
+    <link rel="icon" type="image/png" href="img/toki.png">
+    
+
+    <style>
+        body { 
+            font-family: 'SF Pro Display', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .apple-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .apple-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Vertical text styling */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        
+        @media (max-width: 1024px) {
+            .vertical-text {
+                writing-mode: horizontal-tb;
+                text-orientation: mixed;
+            }
+        }
+        
+        /* Bento box styling */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
+        /* Hero section improvements */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Widget styling */
+        .widget {
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+
+        
+        /* Line clamp for caption */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* Hashtag styling */
+        .caption-hashtag {
+            color: #3b82f6;
+            font-weight: normal;
+        }
+        
+        .bunnies-float {
+            animation: bunniesFloat 3.2s ease-in-out infinite;
+        }
+        @keyframes bunniesFloat {
+            0%   { transform: translate(0, 0) rotate(-8deg); }
+            20%  { transform: translate(8px, -6px) rotate(6deg); }
+            40%  { transform: translate(-6px, -12px) rotate(-10deg); }
+            60%  { transform: translate(10px, -8px) rotate(8deg); }
+            80%  { transform: translate(-4px, 2px) rotate(-6deg); }
+            100% { transform: translate(0, 0) rotate(-8deg); }
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <div id="header"></div>
+    <!-- Hero Section -->
+    <section class="pt-0 min-h-screen bg-black relative overflow-hidden">
+
+        
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-8 pb-8 lg:pb-0 min-h-screen flex items-center relative z-10">
+            <div class="w-full">
+                <!-- Desktop Layout -->
+                <div class="hidden lg:grid grid-cols-12 gap-6 h-[700px] xl:h-[750px]">
+                    
+                    <!-- Left Section - Hero Image -->
+                    <div class="col-span-8 relative">
+                        <!-- Main Image -->
+                        <div class="relative h-full">
+                            <div id="hero-slide-wrapper" class="relative w-full h-full rounded-3xl overflow-hidden bg-gradient-to-br from-purple-600 to-blue-600">
+                                <img id="hero-img-current" src="img/home/NJ_Supernatural_36.jpg" alt="NewJeans Hero" class="absolute inset-0 w-full h-full object-cover object-center" style="display: block;" onerror="this.style.display='none'; console.log('Image failed to load:', this.src);" />
+                                <img id="hero-img-next" src="" alt="NewJeans Hero" class="absolute inset-0 w-full h-full object-cover object-center opacity-0 pointer-events-none" style="z-index:11;" onerror="this.style.display='none';" />
+                                
+                                <!-- Text Overlay -->
+                                <div class="absolute left-8 top-8 z-30">
+                                    <div class="text-white text-5xl font-bold leading-tight drop-shadow-2xl" style="font-family: 'SF Pro Display'; font-style: italic;">
+                                        <div class="text-white mb-0" style="text-shadow: 0 0 20px rgba(255,255,255,0.8);">Let's</div>
+                                        <div class="text-white mb-0" style="text-shadow: 0 0 20px rgba(255,255,255,0.8);">save</div>
+                                        <div class="text-white mb-0" style="text-shadow: 0 0 20px rgba(255,255,255,0.8);">summer</div>
+                                        <div class="text-white" style="text-shadow: 0 0 20px rgba(255,255,255,0.8);">together</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Fallback text if image doesn't load -->
+                                <div id="hero-fallback" class="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold" style="display: none;">
+                                    <div class="text-center">
+                                        <div class="text-6xl mb-4">🖼️</div>
+                                        <div>NewJeans Hero Image</div>
+                                        <div class="text-sm mt-2">Image should appear here</div>
+                                    </div>
+            </div>
+        </div>
+                            
+                            <!-- Bottom Gradient Overlay -->
+                            <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-20"></div>
+                            
+                            <!-- Hero Buttons -->
+                            <div class="absolute bottom-8 left-8 z-30 flex flex-col sm:flex-row gap-2">
+                                <a href="profile.html" class="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-6 py-3 rounded-3xl font-medium transition-all duration-300 border border-white/50 hover:border-white/70 hover:scale-105 shadow-lg relative overflow-visible group">
+                                    Meet the members
+                                    <img src="img/home/icon/bunnies.png" alt="Bunnies Badge" class="absolute -top-3 -right-3 w-10 pointer-events-none select-none bunnies-float" style="z-index:10; height:auto;">
+                                </a>
+                                <a href="discography.html" class="bg-black/70 backdrop-blur-sm hover:bg-black/90 text-white px-6 py-3 rounded-3xl font-medium transition-all duration-300 border border-white/20 hover:border-white/40 hover:scale-105">
+                                    Listen to music
+                                </a>
+                            </div>
+                            
+                            <!-- Navigation Dots -->
+                            <div id="hero-indicators" class="absolute bottom-6 right-8 flex gap-2 z-30"></div>
+                            
+                            <!-- Navigation Buttons -->
+                            <button id="hero-prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/40 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-all duration-300 focus:outline-none backdrop-blur-sm border border-white/20">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+                            <button id="hero-next" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/40 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-all duration-300 focus:outline-none backdrop-blur-sm border border-white/20">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Section - Widgets -->
+                    <div class="col-span-4 flex flex-col gap-6 h-full justify-center">
+                        <!-- Countdown Widget -->
+                        <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-white font-semibold text-xl">NewJeans 3rd Anniversary</h3>
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </div>
+                                                            <div class="text-left">
+                                    <div class="grid grid-cols-8 gap-3 mb-3 items-center">
+                                        <div class="bg-white/20 rounded-lg px-4 py-3 text-center col-span-2">
+                                            <div id="countdown-days" class="text-2xl font-bold text-white">365</div>
+                                        </div>
+                                        <div class="bg-white/20 rounded-lg px-4 py-3 text-center col-span-2">
+                                            <div id="countdown-hours" class="text-2xl font-bold text-white">23</div>
+                                        </div>
+                                        <div class="bg-white/20 rounded-lg px-4 py-3 text-center col-span-2">
+                                            <div id="countdown-minutes" class="text-2xl font-bold text-white">59</div>
+                                        </div>
+                                        <div class="bg-white/20 rounded-lg px-4 py-3 text-center col-span-2">
+                                            <div id="countdown-seconds" class="text-2xl font-bold text-white">59</div>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-8 gap-3 text-xs text-white/80">
+                                        <div class="text-center col-span-2">days</div>
+                                        <div class="text-center col-span-2">hours</div>
+                                        <div class="text-center col-span-2">minutes</div>
+                                        <div class="text-center col-span-2">seconds</div>
+                                    </div>
+                                </div>
+                        </div>
+                        
+                        <!-- Instagram Widget -->
+                        <div id="instagram-widget" class="bg-white rounded-3xl w-full border border-gray-200 overflow-hidden">
+                            <!-- Profile Header -->
+                            <div class="flex items-center justify-between mb-3 px-4 pt-4">
+                                <div class="flex items-center gap-3">
+                                    <div id="ig-profile-picture" class="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center overflow-hidden">
+                                        <img id="ig-profile-img" src="" alt="Profile" class="w-full h-full object-cover" style="display: none;">
+                                        <span id="ig-profile-fallback" class="text-white text-xs font-bold">NJ</span>
+                                    </div>
+                                    <div class="leading-none">
+                                        <div class="flex items-center gap-1 mb-0">
+                                            <span class="font-semibold text-sm text-black">newjeans_official</span>
+                                            <img src="img/home/icon/Verified badge.png" alt="Verified" class="w-4 h-4 object-contain">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- Content Area - Carousel Support -->
+                            <div id="ig-post-content" class="w-full h-80 mb-3 overflow-hidden relative hover:scale-[1.02] transition-transform duration-300 bg-gray-100">
+                                <!-- Carousel Container -->
+                                <div id="ig-carousel" class="w-full h-full relative overflow-hidden">
+                                    <!-- Images will be loaded here -->
+                                </div>
+                                
+                                <!-- Carousel Counter - Top Right -->
+                                <div id="ig-carousel-counter" class="absolute top-3 right-3 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
+                                    <!-- Counter will be loaded here -->
+                                </div>
+                                
+
+                                
+                                <!-- Tap Areas for Navigation (Invisible) -->
+                                <div id="ig-carousel-prev" class="absolute left-0 top-0 w-1/2 h-full cursor-pointer" style="z-index: 10;"></div>
+                                <div id="ig-carousel-next" class="absolute right-0 top-0 w-1/2 h-full cursor-pointer" style="z-index: 10;"></div>
+                                
+                                <!-- Fallback Content (if no images) -->
+                                <div id="ig-fallback-content" class="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 flex items-center justify-center">
+                                    <div class="absolute inset-0 bg-black/20"></div>
+                                    <div class="relative z-10 text-center text-white">
+                                        <div id="ig-post-emoji" class="text-4xl mb-2">🎉</div>
+                                        <div id="ig-post-title" class="text-sm font-semibold">NewJeans Day</div>
+                                        <div id="ig-post-subtitle" class="text-xs opacity-90">3rd Anniversary</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Click overlay for future Instagram link -->
+                                <div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300"></div>
+                            </div>
+                            
+                            <!-- Dot Indicators -->
+                            <div id="ig-carousel-indicators" class="flex justify-center gap-1.5 mb-3">
+                                <!-- Instagram-style dot indicators will be loaded here -->
+                            </div>
+                            
+                            <!-- Engagement Bar -->
+                            <div class="flex items-center gap-4 mb-2 px-4">
+                                <button class="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                                    <img src="img/home/icon/like.png" alt="Like" class="w-full h-full object-contain">
+                                </button>
+                                <button class="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                                    <img src="img/home/icon/comment.png" alt="Comment" class="w-full h-full object-contain">
+                                </button>
+                                <button class="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                                    <img src="img/home/icon/share.png" alt="Share" class="w-full h-full object-contain">
+                                </button>
+                                <button class="w-6 h-6 ml-auto hover:scale-110 transition-transform duration-200">
+                                    <img src="img/home/icon/save.png" alt="Save" class="w-full h-full object-contain">
+                                </button>
+                            </div>
+                            
+                            <!-- Likes & Caption -->
+                            <div class="mb-3 px-4">
+                                <div id="ig-likes-count" class="font-semibold text-sm mb-2 text-black">1,024,090 Likes</div>
+                                <div class="text-sm">
+                                    <span class="font-semibold text-black">newjeans_official</span>
+                                    <span id="ig-caption" class="text-gray-800">[NewJeans Day] NewJeans Debut 3rd Anniversary D-3 ✅ NewJeans Day On-Air #NewJeans #뉴진스 #NewJeansDay #NewJeans_3rd_Anniversary</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Comments -->
+                            <div id="ig-comments-count" class="text-sm text-gray-500 mb-2 px-4">View all 16 comments</div>
+                            
+                            <div id="ig-timestamp" class="text-xs text-gray-400 px-4 pb-4">2 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Layout -->
+                <div class="lg:hidden space-y-4">
+                    <!-- Hero Image -->
+                    <div class="relative h-96 rounded-3xl overflow-hidden bg-gradient-to-br from-purple-600 to-blue-600">
+                        <img id="hero-img-current-mobile" src="img/home/NJ_Supernatural_36.jpg" alt="NewJeans Hero" class="w-full h-full object-cover object-center" />
+                        
+                        <!-- Bottom Gradient Overlay Mobile -->
+                        <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                        <!-- Hero Buttons Mobile -->
+                        <div class="absolute bottom-4 left-4 right-4 z-30 flex flex-col gap-2">
+                            <a href="profile.html" class="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-4 py-2 rounded-3xl font-medium transition-all duration-300 border border-white/50 hover:border-white/70 text-center text-sm shadow-lg relative overflow-hidden group">
+                                <span>Meet the members</span>
+                            </a>
+                            <a href="discography.html" class="bg-black/70 backdrop-blur-sm hover:bg-black/90 text-white px-4 py-2 rounded-3xl font-medium transition-all duration-300 border border-white/20 hover:border-white/40 text-center text-sm">
+                                Listen to music
+                            </a>
+                        </div>
+                        
+                        <!-- Navigation Dots -->
+                        <div id="hero-indicators-mobile" class="absolute bottom-4 right-4 flex gap-2"></div>
+                        
+                        <!-- Navigation Buttons -->
+                        <button id="hero-prev-mobile" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button id="hero-next-mobile" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 text-white rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Countdown Widget -->
+                                            <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-4">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-white font-semibold text-lg">NewJeans 3rd Anniversary</h3>
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </div>
+                        <div class="text-left">
+                            <div class="grid grid-cols-8 gap-2 mb-3 items-center">
+                                <div class="bg-white/20 rounded-lg px-3 py-2 text-center col-span-2">
+                                    <div id="countdown-days-mobile" class="text-xl font-bold text-white">365</div>
+                                </div>
+                                <div class="bg-white/20 rounded-lg px-3 py-2 text-center col-span-2">
+                                    <div id="countdown-hours-mobile" class="text-xl font-bold text-white">23</div>
+                                </div>
+                                <div class="bg-white/20 rounded-lg px-3 py-2 text-center col-span-2">
+                                    <div id="countdown-minutes-mobile" class="text-xl font-bold text-white">59</div>
+                                </div>
+                                <div class="bg-white/20 rounded-lg px-3 py-2 text-center col-span-2">
+                                    <div id="countdown-seconds-mobile" class="text-xl font-bold text-white">59</div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-8 gap-2 text-xs text-white/80">
+                                <div class="text-center col-span-2">days</div>
+                                <div class="text-center col-span-2">hours</div>
+                                <div class="text-center col-span-2">minutes</div>
+                                <div class="text-center col-span-2">seconds</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Instagram Widget -->
+                    <div id="instagram-widget-mobile" class="bg-white rounded-2xl border border-gray-200 overflow-hidden mb-4">
+                        <!-- Profile Header -->
+                        <div class="flex items-center justify-between mb-3 px-3 pt-3">
+                            <div class="flex items-center gap-3">
+                                <div id="ig-profile-picture-mobile" class="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center overflow-hidden">
+                                    <img id="ig-profile-img-mobile" src="" alt="Profile" class="w-full h-full object-cover" style="display: none;">
+                                    <span id="ig-profile-fallback-mobile" class="text-white text-xs font-bold">NJ</span>
+                                </div>
+                                <div class="leading-none">
+                                    <div class="flex items-center gap-1 mb-0">
+                                        <span class="font-semibold text-sm text-black">newjeans_official</span>
+                                        <img src="img/home/icon/Verified badge.png" alt="Verified" class="w-4 h-4 object-contain">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                            </svg>
+                        </div>
+                        
+                        <!-- Content Area - Mobile Carousel -->
+                        <div id="ig-post-content-mobile" class="w-full h-64 mb-3 overflow-hidden relative hover:scale-[1.02] transition-transform duration-300 bg-gray-100">
+                            <!-- Carousel Container -->
+                            <div id="ig-carousel-mobile" class="w-full h-full relative overflow-hidden">
+                                <!-- Images will be loaded here -->
+                            </div>
+                            
+                            <!-- Carousel Indicators -->
+                                                            <!-- Carousel Counter - Top Right -->
+                                <div id="ig-carousel-counter-mobile" class="absolute top-3 right-3 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
+                                    <!-- Counter will be loaded here -->
+                                </div>
+                                
+
+                            
+                            <!-- Tap Areas for Navigation (Invisible) -->
+                            <div id="ig-carousel-prev-mobile" class="absolute left-0 top-0 w-1/2 h-full cursor-pointer" style="z-index: 10;"></div>
+                            <div id="ig-carousel-next-mobile" class="absolute right-0 top-0 w-1/2 h-full cursor-pointer" style="z-index: 10;"></div>
+                            
+                            <!-- Fallback Content (if no images) -->
+                            <div id="ig-fallback-content-mobile" class="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 flex items-center justify-center">
+                                <div class="absolute inset-0 bg-black/20"></div>
+                                <div class="relative z-10 text-center text-white">
+                                    <div id="ig-post-emoji-mobile" class="text-3xl mb-2">🎉</div>
+                                    <div id="ig-post-title-mobile" class="text-sm font-semibold">NewJeans Day</div>
+                                    <div id="ig-post-subtitle-mobile" class="text-xs opacity-90">3rd Anniversary</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Click overlay for future Instagram link -->
+                            <div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300"></div>
+                        </div>
+                        
+
+                        
+                        <!-- Dot Indicators -->
+                        <div id="ig-carousel-indicators-mobile" class="flex justify-center gap-1.5 mb-3">
+                            <!-- Instagram-style dot indicators will be loaded here -->
+                        </div>
+                        
+                        <!-- Engagement Bar -->
+                        <div class="flex items-center gap-4 mb-2 px-3">
+                            <button class="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                                <img src="img/home/icon/like.png" alt="Like" class="w-full h-full object-contain">
+                            </button>
+                            <button class="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                                <img src="img/home/icon/comment.png" alt="Comment" class="w-full h-full object-contain">
+                            </button>
+                            <button class="w-6 h-6 hover:scale-110 transition-transform duration-200">
+                                <img src="img/home/icon/share.png" alt="Share" class="w-full h-full object-contain">
+                            </button>
+                            <button class="w-6 h-6 ml-auto hover:scale-110 transition-transform duration-200">
+                                <img src="img/home/icon/save.png" alt="Save" class="w-full h-full object-contain">
+                            </button>
+                        </div>
+                        
+                        <!-- Likes & Caption -->
+                        <div class="mb-3 px-3">
+                            <div id="ig-likes-count-mobile" class="font-semibold text-sm mb-2 text-black">1,024,090 Likes</div>
+                            <div class="text-sm">
+                                <span class="font-semibold text-black">newjeans_official</span>
+                                                                    <span id="ig-caption-mobile" class="text-gray-800">[NewJeans Day] NewJeans Debut 3rd Anniversary D-3 ✅ NewJeans Day On-Air #NewJeans #뉴진스 #NewJeansDay #NewJeans_3rd_Anniversary</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Comments -->
+                        <div id="ig-comments-count-mobile" class="text-sm text-gray-500 mb-2 px-3">View all 16 comments</div>
+                        
+                        <div id="ig-timestamp-mobile" class="text-xs text-gray-400 px-3 pb-4">2 hours ago</div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+// Global hero images array
+  const heroImages = [
+    "img/home/NJ_Supernatural_1.jpg",
+    "img/home/NJ_Supernatural_30.jpg",
+    "img/home/NJ_Supernatural_36.jpg",
+    "img/home/NJ_Supernatural_55.jpg",
+    "img/home/NJ_Supernatural_82.jpg"
+  ];
+
+// Wait for both DOM and header to be loaded
+function initHeroSlider() {
+  console.log('Initializing hero slider...');
+  
+  // Preload images to ensure they're available
+  heroImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => console.log('Image loaded:', src);
+    img.onerror = () => console.error('Image failed to load:', src);
+  });
+  
+  // Debug current image
+  const currentImg = document.getElementById('hero-img-current');
+  const fallback = document.getElementById('hero-fallback');
+  
+  if (currentImg) {
+    console.log('Current image element:', currentImg);
+    console.log('Current image src:', currentImg.src);
+    console.log('Current image style:', currentImg.style.cssText);
+    
+    // Check if image is actually visible
+    setTimeout(() => {
+      const rect = currentImg.getBoundingClientRect();
+      console.log('Image bounding rect:', rect);
+      console.log('Image visible:', rect.width > 0 && rect.height > 0);
+      
+      if (rect.width === 0 || rect.height === 0) {
+        console.log('Image not visible, showing fallback');
+        if (fallback) fallback.style.display = 'flex';
+      }
+    }, 1000);
+    
+    // Add better error handling for image loading
+    currentImg.onerror = function() {
+      console.error('Hero image failed to load:', this.src);
+      this.style.display = 'none';
+      if (fallback) fallback.style.display = 'flex';
+    };
+    
+    currentImg.onload = function() {
+      console.log('Hero image loaded successfully:', this.src);
+      if (fallback) fallback.style.display = 'none';
+    };
+  }
+  let heroIndex = 0;
+  let heroInterval = null;
+  const indicators = document.getElementById('hero-indicators');
+  const imgCurrent = document.getElementById('hero-img-current');
+  const imgNext = document.getElementById('hero-img-next');
+  const slideWrapper = document.getElementById('hero-slide-wrapper');
+  
+  // Check if elements exist
+  if (!indicators || !imgCurrent || !imgNext || !slideWrapper) {
+    console.log('Hero elements not found, retrying...');
+    setTimeout(initHeroSlider, 100);
+    return;
+  }
+  
+  console.log('Hero elements found, setting up slider...');
+  let isSliding = false;
+
+  // Touch and mouse drag variables
+  let startX = 0;
+  let startY = 0;
+  let currentX = 0;
+  let isDragging = false;
+  let dragThreshold = 20; // Lowered threshold for easier slide
+
+  function updateIndicators() {
+    indicators.innerHTML = heroImages.map((_, i) =>
+      `<button onclick=\"setHero(${i})\" class=\"w-2 h-2 md:w-3 md:h-3 rounded-full mx-1 transition-all duration-300 ${i===heroIndex?'bg-white/90 scale-125 shadow-lg':'bg-white/40 hover:bg-white/70'}\"></button>`
+    ).join('');
+  }
+
+  function slideTo(nextIndex, direction = 1) {
+    if (isSliding || nextIndex === heroIndex) return;
+    isSliding = true;
+    
+    // Preload next image
+    const nextImg = new Image();
+    nextImg.onload = () => {
+      // Set up next image position
+      imgNext.src = heroImages[nextIndex];
+      imgNext.style.opacity = 1;
+      imgNext.style.zIndex = 2;
+      imgCurrent.style.zIndex = 1;
+      
+      // Position next image off-screen
+      imgNext.style.transform = `translateX(${direction * 100}%)`;
+      imgCurrent.style.transform = 'translateX(0)';
+      
+      // Both images visible during transition
+      imgNext.style.display = 'block';
+      imgCurrent.style.display = 'block';
+      
+      // Start smooth slide transition
+      requestAnimationFrame(() => {
+        imgNext.style.transition = imgCurrent.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        imgNext.style.transform = 'translateX(0)';
+        imgCurrent.style.transform = `translateX(${-direction * 100}%)`;
+        
+        // After transition, clean up
+        setTimeout(() => {
+          imgCurrent.src = heroImages[nextIndex];
+          imgCurrent.style.transition = 'none';
+          imgCurrent.style.transform = 'translateX(0)';
+          imgNext.style.opacity = 0;
+          imgNext.style.transform = `translateX(${direction * 100}%)`;
+          imgNext.style.zIndex = 1;
+          imgCurrent.style.zIndex = 2;
+          heroIndex = nextIndex;
+          updateIndicators();
+          isSliding = false;
+        }, 800);
+      });
+    };
+    nextImg.src = heroImages[nextIndex];
+  }
+
+  function nextHero() {
+    slideTo((heroIndex + 1) % heroImages.length, 1);
+    resetHeroInterval();
+  }
+
+  function prevHero() {
+    slideTo((heroIndex - 1 + heroImages.length) % heroImages.length, -1);
+    resetHeroInterval();
+  }
+
+  function setHero(i) {
+    if (i === heroIndex) return;
+    slideTo(i, i > heroIndex ? 1 : -1);
+    resetHeroInterval();
+  }
+  window.setHero = setHero;
+
+  function resetHeroInterval() {
+    clearInterval(heroInterval);
+    heroInterval = setInterval(() => nextHero(), 4000);
+  }
+
+  // Remove touch event handler functions
+  // function handleTouchStart(e) { ... }
+  // function handleTouchMove(e) { ... }
+  // function handleTouchEnd(e) { ... }
+
+  // Remove touch event listeners
+  // slideWrapper.addEventListener('touchstart', handleTouchStart, { passive: false });
+  // slideWrapper.addEventListener('touchmove', handleTouchMove, { passive: false });
+  // slideWrapper.addEventListener('touchend', handleTouchEnd, { passive: false });
+
+  // Prevent context menu on right click
+  slideWrapper.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  // Remove cursor styling for grab/grabbing
+  // slideWrapper.style.cursor = 'grab';
+  // slideWrapper.style.userSelect = 'none';
+  slideWrapper.style.cursor = 'default';
+  slideWrapper.style.userSelect = 'none';
+
+  document.getElementById('hero-next').onclick = nextHero;
+  document.getElementById('hero-prev').onclick = prevHero;
+  updateIndicators();
+  heroInterval = setInterval(() => nextHero(), 4000);
+  
+  console.log('Hero slider initialized successfully!');
+}
+
+
+
+// Mobile Hero Slider
+function initMobileHeroSlider() {
+  let mobileHeroIndex = 0;
+  const mobileImg = document.getElementById('hero-img-current-mobile');
+  const mobileIndicators = document.getElementById('hero-indicators-mobile');
+  const mobilePrev = document.getElementById('hero-prev-mobile');
+  const mobileNext = document.getElementById('hero-next-mobile');
+  
+  if (!mobileImg || !mobileIndicators || !mobilePrev || !mobileNext) {
+    console.log('Mobile hero elements not found');
+    return;
+  }
+  
+  function updateMobileIndicators() {
+    mobileIndicators.innerHTML = heroImages.map((_, i) =>
+      `<button onclick=\"setMobileHero(${i})\" class=\"w-2 h-2 rounded-full mx-1 transition-all duration-300 ${i===mobileHeroIndex?'bg-white/90 scale-125':'bg-white/40'}\"></button>`
+    ).join('');
+  }
+  
+  function setMobileHero(i) {
+    if (i === mobileHeroIndex) return;
+    
+    // Simple direct change for mobile (no slide effect needed)
+    mobileImg.src = heroImages[i];
+    mobileHeroIndex = i;
+    updateMobileIndicators();
+  }
+  
+  function nextMobileHero() {
+    setMobileHero((mobileHeroIndex + 1) % heroImages.length);
+  }
+  
+  function prevMobileHero() {
+    setMobileHero((mobileHeroIndex - 1 + heroImages.length) % heroImages.length);
+  }
+  
+  window.setMobileHero = setMobileHero;
+  mobilePrev.onclick = prevMobileHero;
+  mobileNext.onclick = nextMobileHero;
+  updateMobileIndicators();
+  
+  console.log('Mobile hero slider initialized!');
+}
+
+// Instagram Widget - Enhanced with Auto-Update Support
+  function initInstagramWidget() {
+    console.log('Instagram widget initialized with enhanced features');
+    
+    // Check if there's a saved configuration in localStorage
+    const savedConfig = localStorage.getItem('instagramConfig');
+    let configToUse = INSTAGRAM_CONFIG;
+    
+    // Force clear localStorage for testing
+    localStorage.removeItem('instagramConfig');
+    console.log('🧹 Cleared localStorage for testing');
+    
+    console.log('Using default INSTAGRAM_CONFIG');
+    console.log('🔍 Default config account:', INSTAGRAM_CONFIG.account);
+    
+    // Use configuration from localStorage or external file
+    const instagramPost = configToUse.currentPost;
+    
+    // Initialize Instagram post after DOM is ready
+    console.log('🖼️ Initializing Instagram post...');
+    updateInstagramPost(instagramPost);
+    initializeAPI();
+  
+  function updateInstagramPost(postData) {
+    // Helper function to detect Korean text and apply font
+    function applyKoreanFont(element) {
+      if (element && element.textContent) {
+        const koreanRegex = /[가-힣]/;
+        if (koreanRegex.test(element.textContent)) {
+          element.classList.add('korean-text');
+        }
+      }
+    }
+    
+    // Desktop elements
+    const postContent = document.getElementById('ig-post-content');
+    const emoji = document.getElementById('ig-post-emoji');
+    const title = document.getElementById('ig-post-title');
+    const subtitle = document.getElementById('ig-post-subtitle');
+    const likesCount = document.getElementById('ig-likes-count');
+    const caption = document.getElementById('ig-caption');
+    const commentsCount = document.getElementById('ig-comments-count');
+    const timestamp = document.getElementById('ig-timestamp');
+    
+    // Mobile elements
+    const postContentMobile = document.getElementById('ig-post-content-mobile');
+    const emojiMobile = document.getElementById('ig-post-emoji-mobile');
+    const titleMobile = document.getElementById('ig-post-title-mobile');
+    const subtitleMobile = document.getElementById('ig-post-subtitle-mobile');
+    const likesCountMobile = document.getElementById('ig-likes-count-mobile');
+    const captionMobile = document.getElementById('ig-caption-mobile');
+    const commentsCountMobile = document.getElementById('ig-comments-count-mobile');
+    const timestampMobile = document.getElementById('ig-timestamp-mobile');
+    
+    // Update verified badge visibility
+    updateVerifiedBadge(configToUse.account.verified);
+    
+    // Update profile picture if available
+    if (configToUse.account.profilePicture) {
+      console.log('🖼️ Updating profile picture with:', configToUse.account.profilePicture);
+      console.log('🔍 Config account object:', configToUse.account);
+      updateProfilePicture(configToUse.account.profilePicture);
+    } else {
+      console.log('⚠️ No profile picture URL found in config');
+      console.log('🔍 Full config object:', configToUse);
+    }
+    
+
+    
+    // Update text content
+    if (emoji) emoji.textContent = postData.emoji;
+    if (title) title.textContent = postData.title;
+    if (subtitle) subtitle.textContent = postData.subtitle;
+    if (likesCount) likesCount.textContent = `${postData.likes} Likes`;
+    // Update caption (simple display)
+    if (caption) {
+      caption.innerHTML = formatCaptionWithHashtags(postData.caption);
+    }
+    
+    if (commentsCount) commentsCount.textContent = `View all ${postData.comments} comments`;
+    if (timestamp) {
+      console.log('🕐 Updating desktop timestamp to:', postData.timestamp);
+      timestamp.textContent = postData.timestamp;
+    }
+    
+    // Mobile text content
+    if (emojiMobile) emojiMobile.textContent = postData.emoji;
+    if (titleMobile) titleMobile.textContent = postData.title;
+    if (subtitleMobile) subtitleMobile.textContent = postData.subtitle;
+    if (likesCountMobile) likesCountMobile.textContent = `${postData.likes} Likes`;
+    
+    // Update mobile caption (simple display)
+    if (captionMobile) {
+      captionMobile.innerHTML = formatCaptionWithHashtags(postData.caption);
+    }
+    if (commentsCountMobile) commentsCountMobile.textContent = `View all ${postData.comments} comments`;
+    if (timestampMobile) {
+      console.log('🕐 Updating mobile timestamp to:', postData.timestamp);
+      timestampMobile.textContent = postData.timestamp;
+    }
+    
+    // Update carousel if images are provided
+    console.log('🔍 Post data images:', postData.images);
+    console.log('🔍 Images length:', postData.images ? postData.images.length : 'no images array');
+    
+    if (postData.images && postData.images.length > 0) {
+      console.log('🖼️ Initializing carousel with', postData.images.length, 'images');
+      
+      // Check if elements exist
+      const carousel = document.getElementById('ig-carousel');
+      const indicators = document.getElementById('ig-carousel-indicators');
+      const counter = document.getElementById('ig-carousel-counter');
+      
+      console.log('🔍 Elements found:', {
+        carousel: !!carousel,
+        indicators: !!indicators,
+        counter: !!counter
+      });
+      
+      if (carousel && indicators) {
+        initCarousel('ig-carousel', 'ig-carousel-indicators', 'ig-carousel-prev', 'ig-carousel-next', 'ig-fallback-content', postData.images, postData.carousel);
+      } else {
+        console.log('❌ Carousel elements not found, retrying...');
+        setTimeout(() => {
+          initCarousel('ig-carousel', 'ig-carousel-indicators', 'ig-carousel-prev', 'ig-carousel-next', 'ig-fallback-content', postData.images, postData.carousel);
+        }, 100);
+      }
+      
+      if (document.getElementById('ig-carousel-mobile') && document.getElementById('ig-carousel-indicators-mobile')) {
+        initCarousel('ig-carousel-mobile', 'ig-carousel-indicators-mobile', 'ig-carousel-prev-mobile', 'ig-carousel-next-mobile', 'ig-fallback-content-mobile', postData.images, postData.carousel);
+      } else {
+        setTimeout(() => {
+          initCarousel('ig-carousel-mobile', 'ig-carousel-indicators-mobile', 'ig-carousel-prev-mobile', 'ig-carousel-next-mobile', 'ig-fallback-content-mobile', postData.images, postData.carousel);
+        }, 100);
+      }
+    } else {
+      // Show fallback content
+      console.log('⚠️ No images found, showing fallback content');
+      showFallbackContent('ig-fallback-content', 'ig-carousel', postData);
+      showFallbackContent('ig-fallback-content-mobile', 'ig-carousel-mobile', postData);
+    }
+    
+    // Caption expand/collapse removed - using simple caption display
+  }
+  
+  // Function to format caption with hashtag styling
+  function formatCaptionWithHashtags(captionText) {
+    if (!captionText) return '';
+    
+    // Replace hashtags with styled spans (including Korean characters)
+    return captionText.replace(/#([\w\u3131-\u318E\uAC00-\uD7A3]+)/g, '<span class="caption-hashtag">#$1</span>');
+  }
+  
+  // Initialize carousel
+  function initCarousel(carouselId, indicatorsId, prevId, nextId, fallbackId, images, settings) {
+    const carousel = document.getElementById(carouselId);
+    const indicators = document.getElementById(indicatorsId);
+    const prevBtn = document.getElementById(prevId);
+    const nextBtn = document.getElementById(nextId);
+    const fallback = document.getElementById(fallbackId);
+    
+    // Get counter element
+    const counterId = indicatorsId.includes('mobile') ? 'ig-carousel-counter-mobile' : 'ig-carousel-counter';
+    const counter = document.getElementById(counterId);
+    
+    if (!carousel || !indicators) {
+      console.log('❌ Carousel or indicators not found:', { carousel: !!carousel, indicators: !!indicators });
+      return;
+    }
+    
+    console.log('✅ Initializing carousel:', carouselId);
+    
+    // Hide fallback content
+    if (fallback) fallback.style.display = 'none';
+    
+    // Clear existing content
+    carousel.innerHTML = '';
+    
+    // Clear existing indicators
+    if (indicators) {
+      indicators.innerHTML = '';
+      console.log('🧹 Cleared existing indicators');
+    }
+    
+    // Initialize counter
+    if (counter) {
+      counter.textContent = `1/${images.length}`;
+      console.log('✅ Counter initialized:', counter.textContent);
+    } else {
+      console.log('❌ Counter element not found:', counterId);
+    }
+    
+    let currentIndex = 0;
+    let autoPlayInterval;
+    
+    // Create carousel images
+    images.forEach((image, index) => {
+      const imgElement = document.createElement('img');
+      imgElement.src = image.url;
+      imgElement.alt = image.alt;
+      imgElement.className = `absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${index === 0 ? 'opacity-100' : 'opacity-0'}`;
+      imgElement.style.objectPosition = 'center';
+      imgElement.style.width = '100%';
+      imgElement.style.height = '100%';
+      
+      // Add error handling for Instagram images with CORS proxy fallback
+      imgElement.onerror = function() {
+        console.log(`❌ Failed to load image ${index + 1}: ${this.src}`);
+        
+        // Try CORS proxy if original URL fails
+        if (this.src.includes('instagram') && !this.src.includes('cors')) {
+          console.log(`🔄 Trying CORS proxy for: ${this.src}`);
+          this.src = `https://api.allorigins.win/raw?url=${encodeURIComponent(this.src)}`;
+        } else if (this.src.includes('api.allorigins.win')) {
+          // Try alternative CORS proxy
+          console.log(`🔄 Trying alternative CORS proxy for: ${this.src}`);
+          const originalUrl = this.src.replace('https://api.allorigins.win/raw?url=', '');
+          this.src = `https://corsproxy.io/?${originalUrl}`;
+        } else {
+          // Show error placeholder for failed images
+          console.log(`❌ All CORS proxies failed, showing placeholder`);
+          this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMzM0MTU1Ii8+Cjx0ZXh0IHg9IjEwMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+SW1hZ2UgRXJyb3I8L3RleHQ+Cjwvc3ZnPgo=';
+        }
+      };
+      
+      imgElement.onload = function() {
+        console.log(`✅ Successfully loaded image ${index + 1}: ${this.src}`);
+        console.log(`✅ Image path: ${this.src}`);
+      };
+      
+      carousel.appendChild(imgElement);
+      
+      // Create Instagram-style dot indicators with smart sizing
+      if (indicators) {
+        const dotIndicator = document.createElement('div');
+        
+        // Calculate which dot should be active based on current image index
+        const currentImageIndex = parseInt(carousel.getAttribute('data-current-index') || '0');
+        const isActive = index === currentImageIndex;
+        
+        // All dots visible but smaller
+        let size, opacity, display;
+        size = 'w-1 h-1'; // Smaller size (4px instead of 6px)
+        opacity = 'opacity-100';
+        display = 'block';
+        
+        // Active dot is blue, others gray
+        const color = isActive ? 'bg-blue-500' : 'bg-gray-400';
+        dotIndicator.className = `${size} rounded-full transition-all duration-300 ${color} ${opacity}`;
+        dotIndicator.style.display = display;
+        dotIndicator.id = `carousel-dot-${index}`;
+        dotIndicator.setAttribute('data-index', index); // Add data attribute for tracking
+        indicators.appendChild(dotIndicator);
+        console.log(`✅ Created dot ${index + 1}:`, { size, color, isActive, opacity, index, currentImageIndex });
+      } else {
+        console.log('❌ Indicators element not found for dot creation');
+      }
+    });
+    
+    // Navigation functions
+    function goToSlide(index) {
+      if (index < 0 || index >= images.length) return;
+      
+      const slides = carousel.querySelectorAll('img');
+      
+      // Hide current slide
+      slides[currentIndex].classList.remove('opacity-100');
+      slides[currentIndex].classList.add('opacity-0');
+      
+      // Show new slide
+      slides[index].classList.remove('opacity-0');
+      slides[index].classList.add('opacity-100');
+      
+          // Update counter
+    if (counter) {
+      counter.textContent = `${index + 1}/${images.length}`;
+    }
+    
+    // Store current index for dot creation
+    carousel.setAttribute('data-current-index', index);
+    
+    // Update dot indicators with smart sizing
+    if (indicators) {
+      const dots = indicators.querySelectorAll('[id^="carousel-dot-"]');
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === index; // Only current index is active
+        
+        // Smart dot sizing based on current slide position
+        let size, opacity, display;
+        const totalDots = dots.length;
+        
+        // All dots visible but smaller
+        size = 'w-1 h-1'; // Smaller size (4px)
+        opacity = 'opacity-100';
+        display = 'block';
+        
+        const color = isActive ? 'bg-blue-500' : 'bg-gray-400';
+        
+        // Remove all size, color, and opacity classes
+        dot.className = dot.className.replace(/w-\d+(\.\d+)? h-\d+(\.\d+)?/g, '');
+        dot.className = dot.className.replace(/bg-(blue|gray)-\d+/g, '');
+        dot.className = dot.className.replace(/opacity-\d+/g, '');
+        
+        // Add new classes and update display
+        dot.className = `${size} rounded-full transition-all duration-300 ${color} ${opacity}`;
+        dot.style.display = display;
+        
+        console.log(`🔄 Updated dot ${dotIndex + 1}:`, { isActive, color, index });
+      });
+    }
+      
+      currentIndex = index;
+    }
+    
+    function nextSlide() {
+      goToSlide((currentIndex + 1) % images.length);
+    }
+    
+    function prevSlide() {
+      goToSlide((currentIndex - 1 + images.length) % images.length);
+    }
+    
+    // Event listeners
+    if (prevBtn) prevBtn.onclick = prevSlide;
+    if (nextBtn) nextBtn.onclick = nextSlide;
+    
+    // Manual navigation only - no auto-play
+    // Auto-play has been disabled as requested
+    
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let endX = 0;
+    
+    carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+    
+    carousel.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      
+      if (Math.abs(diff) > 50) { // Minimum swipe distance
+        if (diff > 0) {
+          nextSlide(); // Swipe left
+        } else {
+          prevSlide(); // Swipe right
+        }
+      }
+    });
+  }
+  
+  // Show fallback content when no images
+  function showFallbackContent(fallbackId, carouselId, postData) {
+    const fallback = document.getElementById(fallbackId);
+    const carousel = document.getElementById(carouselId);
+    
+    if (fallback) {
+      fallback.style.display = 'flex';
+      fallback.className = `absolute inset-0 bg-gradient-to-br ${postData.gradient} flex items-center justify-center`;
+    }
+    
+    if (carousel) {
+      carousel.innerHTML = '';
+    }
+  }
+  
+  // Update verified badge visibility
+  function updateVerifiedBadge(isVerified) {
+    const verifiedBadges = document.querySelectorAll('img[src*="Verified badge.png"]');
+    
+    verifiedBadges.forEach(badge => {
+      if (isVerified) {
+        badge.style.display = 'block';
+      } else {
+        badge.style.display = 'none';
+      }
+    });
+  }
+  
+  // Update profile picture
+  function updateProfilePicture(profilePictureUrl) {
+    console.log('🖼️ updateProfilePicture called with:', profilePictureUrl);
+    
+    const profileImg = document.getElementById('ig-profile-img');
+    const profileImgMobile = document.getElementById('ig-profile-img-mobile');
+    const profileFallback = document.getElementById('ig-profile-fallback');
+    const profileFallbackMobile = document.getElementById('ig-profile-fallback-mobile');
+    
+    console.log('🔍 Elements found:', {
+      profileImg: !!profileImg,
+      profileImgMobile: !!profileImgMobile,
+      profileFallback: !!profileFallback,
+      profileFallbackMobile: !!profileFallbackMobile
+    });
+    
+    if (profilePictureUrl) {
+      // Desktop
+      if (profileImg) {
+        console.log('🖼️ Setting up desktop profile image with URL:', profilePictureUrl);
+        profileImg.onload = function() {
+          console.log('✅ Desktop profile image loaded successfully');
+          this.style.display = 'block';
+          if (profileFallback) profileFallback.style.display = 'none';
+        };
+        profileImg.onerror = function() {
+          console.log('❌ Failed to load profile picture, trying CORS proxy...');
+          
+          // Try CORS proxy if original URL fails (same as post images)
+          if (this.src.includes('instagram') && !this.src.includes('cors')) {
+            console.log('🔄 Trying CORS proxy for profile picture:', this.src);
+            this.src = `https://api.allorigins.win/raw?url=${encodeURIComponent(this.src)}`;
+          } else if (this.src.includes('api.allorigins.win')) {
+            // Try alternative CORS proxy
+            console.log('🔄 Trying alternative CORS proxy for profile picture');
+            const originalUrl = this.src.replace('https://api.allorigins.win/raw?url=', '');
+            this.src = `https://corsproxy.io/?${originalUrl}`;
+          } else {
+            console.log('❌ All CORS proxies failed, showing fallback');
+            this.style.display = 'none';
+            if (profileFallback) profileFallback.style.display = 'block';
+          }
+        };
+        profileImg.src = profilePictureUrl;
+      }
+      
+      // Mobile
+      if (profileImgMobile) {
+        profileImgMobile.onload = function() {
+          this.style.display = 'block';
+          if (profileFallbackMobile) profileFallbackMobile.style.display = 'none';
+        };
+        profileImgMobile.onerror = function() {
+          console.log('❌ Failed to load profile picture (mobile), trying CORS proxy...');
+          
+          // Try CORS proxy if original URL fails (same as post images)
+          if (this.src.includes('instagram') && !this.src.includes('cors')) {
+            console.log('🔄 Trying CORS proxy for profile picture (mobile):', this.src);
+            this.src = `https://api.allorigins.win/raw?url=${encodeURIComponent(this.src)}`;
+          } else if (this.src.includes('api.allorigins.win')) {
+            // Try alternative CORS proxy
+            console.log('🔄 Trying alternative CORS proxy for profile picture (mobile)');
+            const originalUrl = this.src.replace('https://api.allorigins.win/raw?url=', '');
+            this.src = `https://corsproxy.io/?${originalUrl}`;
+          } else {
+            console.log('❌ All CORS proxies failed (mobile), showing fallback');
+            this.style.display = 'none';
+            if (profileFallbackMobile) profileFallbackMobile.style.display = 'block';
+          }
+        };
+        profileImgMobile.src = profilePictureUrl;
+      }
+    } else {
+      // Show fallback if no profile picture
+      if (profileImg) profileImg.style.display = 'none';
+      if (profileImgMobile) profileImgMobile.style.display = 'none';
+      if (profileFallback) profileFallback.style.display = 'block';
+      if (profileFallbackMobile) profileFallbackMobile.style.display = 'block';
+    }
+  }
+  
+  // Initialize with single post - will be called after DOM is ready
+  updateInstagramPost(instagramPost);
+  
+  // Enhanced API integration
+  let instagramAPI = null;
+  
+  async function initializeAPI() {
+    // Always try to initialize API if enabled, regardless of auto-update setting
+    if (configToUse.api.enabled && configToUse.api.rapidApiKey) {
+      console.log('🔄 Initializing Instagram API...');
+      try {
+        instagramAPI = new InstagramAPI(configToUse);
+        const success = await instagramAPI.initialize();
+        if (success) {
+          console.log('✅ Instagram API initialized successfully');
+          
+          // Set quota update callback
+          instagramAPI.setQuotaUpdateCallback(updateQuotaUI);
+          
+          // Immediately fetch latest post
+          await fetchLatestPost();
+          
+          // Start auto-updates if enabled
+          if (configToUse.autoUpdate.enabled) {
+            setInterval(fetchLatestPost, configToUse.autoUpdate.interval);
+            console.log('🔄 Auto-update enabled, will fetch every', configToUse.autoUpdate.interval / 60000, 'minutes');
+          }
+        } else {
+          console.error('❌ Failed to initialize Instagram API');
+        }
+      } catch (error) {
+        console.error('❌ Error initializing Instagram API:', error);
+      }
+    } else {
+      console.log('ℹ️ Instagram API not enabled or missing RapidAPI key');
+    }
+  }
+  
+  async function fetchLatestPost() {
+    try {
+      if (instagramAPI) {
+        console.log('📡 Fetching latest Instagram post...');
+        const latestPost = await instagramAPI.fetchLatestPost();
+        if (latestPost) {
+          updateInstagramPost(latestPost);
+          console.log('✅ Instagram post updated successfully');
+          
+          // Update localStorage with new data
+          const updatedConfig = {
+            ...configToUse,
+            currentPost: latestPost,
+            account: {
+              ...configToUse.account
+            }
+          };
+          localStorage.setItem('instagramConfig', JSON.stringify(updatedConfig));
+        } else {
+          console.log('⚠️ No post data returned from API');
+          console.log('ℹ️ Using default post data from config');
+          // Use default data when API fails
+          updateInstagramPost(configToUse.currentPost);
+        }
+      }
+    } catch (error) {
+      console.error('❌ Error fetching latest post:', error);
+    }
+  }
+
+  // Update quota UI
+  function updateQuotaUI(quotaInfo) {
+    console.log('📊 Updating quota UI:', quotaInfo);
+    
+    // Update desktop quota display
+    const quotaUsed = document.getElementById('quota-used');
+
+  }
+  
+  // Initialize API immediately
+  initializeAPI();
+}
+
+// Countdown Timer Function
+function initCountdown() {
+  console.log('⏰ Initializing countdown timer...');
+  
+  // Set target date (NewJeans 3rd Anniversary - July 22, 2025 at 00:00)
+  const targetDate = new Date('2025-07-22T00:00:00').getTime();
+  
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    
+    if (distance < 0) {
+      // Anniversary has passed
+      const desktopDays = document.getElementById('countdown-days');
+      const desktopHours = document.getElementById('countdown-hours');
+      const desktopMinutes = document.getElementById('countdown-minutes');
+      const desktopSeconds = document.getElementById('countdown-seconds');
+      
+      const mobileDays = document.getElementById('countdown-days-mobile');
+      const mobileHours = document.getElementById('countdown-hours-mobile');
+      const mobileMinutes = document.getElementById('countdown-minutes-mobile');
+      const mobileSeconds = document.getElementById('countdown-seconds-mobile');
+      
+      if (desktopDays) desktopDays.textContent = '00';
+      if (desktopHours) desktopHours.textContent = '00';
+      if (desktopMinutes) desktopMinutes.textContent = '00';
+      if (desktopSeconds) desktopSeconds.textContent = '00';
+      
+      if (mobileDays) mobileDays.textContent = '00';
+      if (mobileHours) mobileHours.textContent = '00';
+      if (mobileMinutes) mobileMinutes.textContent = '00';
+      if (mobileSeconds) mobileSeconds.textContent = '00';
+      return;
+    }
+    
+    // Calculate time units
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Update desktop segments
+    const desktopDays = document.getElementById('countdown-days');
+    const desktopHours = document.getElementById('countdown-hours');
+    const desktopMinutes = document.getElementById('countdown-minutes');
+    const desktopSeconds = document.getElementById('countdown-seconds');
+    
+    // Update mobile segments
+    const mobileDays = document.getElementById('countdown-days-mobile');
+    const mobileHours = document.getElementById('countdown-hours-mobile');
+    const mobileMinutes = document.getElementById('countdown-minutes-mobile');
+    const mobileSeconds = document.getElementById('countdown-seconds-mobile');
+    
+    // Update desktop
+    if (desktopDays) desktopDays.textContent = days.toString().padStart(2, '0');
+    if (desktopHours) desktopHours.textContent = hours.toString().padStart(2, '0');
+    if (desktopMinutes) desktopMinutes.textContent = minutes.toString().padStart(2, '0');
+    if (desktopSeconds) desktopSeconds.textContent = seconds.toString().padStart(2, '0');
+    
+    // Update mobile
+    if (mobileDays) mobileDays.textContent = days.toString().padStart(2, '0');
+    if (mobileHours) mobileHours.textContent = hours.toString().padStart(2, '0');
+    if (mobileMinutes) mobileMinutes.textContent = minutes.toString().padStart(2, '0');
+    if (mobileSeconds) mobileSeconds.textContent = seconds.toString().padStart(2, '0');
+    
+    // Log countdown progress
+    console.log(`⏰ Countdown: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
+  }
+  
+  // Update immediately and then every second
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+  
+  console.log('✅ Countdown timer initialized for July 22, 2025 00:00');
+}
+
+// Instagram Menu Popup Function
+function initInstagramMenu() {
+  console.log('🍔 Initializing Instagram menu popup...');
+  
+  // Create popup menu elements
+  const menuBtn = document.createElement('button');
+  menuBtn.id = 'ig-menu-btn';
+  menuBtn.className = 'relative';
+  menuBtn.innerHTML = `
+    <svg class="w-5 h-5 text-gray-600 hover:text-gray-800 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+    </svg>
+    
+    <!-- Popup Menu -->
+    <div id="ig-menu-popup" class="absolute right-0 top-8 bg-white border border-gray-200 rounded-lg shadow-lg py-2 min-w-[160px] z-50 hidden">
+      <button id="view-instagram-btn" class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
+        View on Instagram
+      </button>
+      <button id="copy-link-btn" class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+        </svg>
+        Copy Link
+      </button>
+    </div>
+  `;
+  
+  // Replace existing SVG with button
+  const existingSvg = document.querySelector('.flex.items-center.justify-between.mb-3.px-4 svg');
+  if (existingSvg) {
+    existingSvg.parentNode.replaceChild(menuBtn, existingSvg);
+  }
+  
+  // Mobile version
+  const menuBtnMobile = document.createElement('button');
+  menuBtnMobile.id = 'ig-menu-btn-mobile';
+  menuBtnMobile.className = 'relative';
+  menuBtnMobile.innerHTML = `
+    <svg class="w-5 h-5 text-gray-600 hover:text-gray-800 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+    </svg>
+    
+    <!-- Popup Menu -->
+    <div id="ig-menu-popup-mobile" class="absolute right-0 top-8 bg-white border border-gray-200 rounded-lg shadow-lg py-2 min-w-[160px] z-50 hidden">
+      <button id="view-instagram-btn-mobile" class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
+        View on Instagram
+      </button>
+      <button id="copy-link-btn-mobile" class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+        </svg>
+        Copy Link
+      </button>
+    </div>
+  `;
+  
+  // Replace mobile SVG with button
+  const existingSvgMobile = document.querySelector('.flex.items-center.justify-between.mb-3.px-3.pt-3 svg');
+  if (existingSvgMobile) {
+    existingSvgMobile.parentNode.replaceChild(menuBtnMobile, existingSvgMobile);
+  }
+  
+  // Add event listeners
+  menuBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const popup = document.getElementById('ig-menu-popup');
+    popup.classList.toggle('hidden');
+  });
+  
+  menuBtnMobile.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const popup = document.getElementById('ig-menu-popup-mobile');
+    popup.classList.toggle('hidden');
+  });
+  
+  // Close popup when clicking outside
+  document.addEventListener('click', function() {
+    document.getElementById('ig-menu-popup').classList.add('hidden');
+    document.getElementById('ig-menu-popup-mobile').classList.add('hidden');
+  });
+  
+  // Add event listeners after config is loaded
+  setTimeout(() => {
+    console.log('🔗 Setting up Instagram menu event listeners...');
+    console.log('🔗 Config available:', !!configToUse);
+    console.log('🔗 Post URL:', configToUse?.currentPost?.postUrl);
+    // View on Instagram button
+    document.getElementById('view-instagram-btn')?.addEventListener('click', function() {
+      const postUrl = configToUse?.currentPost?.postUrl || 'https://www.instagram.com/newjeans_official/';
+      console.log('Opening Instagram post:', postUrl);
+      window.open(postUrl, '_blank');
+    });
+    
+    document.getElementById('view-instagram-btn-mobile')?.addEventListener('click', function() {
+      const postUrl = configToUse?.currentPost?.postUrl || 'https://www.instagram.com/newjeans_official/';
+      console.log('Opening Instagram post (mobile):', postUrl);
+      window.open(postUrl, '_blank');
+    });
+    
+    // Copy Link button
+    document.getElementById('copy-link-btn')?.addEventListener('click', function() {
+      const postUrl = configToUse?.currentPost?.postUrl || 'https://www.instagram.com/newjeans_official/';
+      console.log('Copying Instagram post URL:', postUrl);
+      navigator.clipboard.writeText(postUrl).then(() => {
+        // Show success message
+        const btn = this;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `
+          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+          Copied!
+        `;
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 2000);
+      });
+    });
+    
+    document.getElementById('copy-link-btn-mobile')?.addEventListener('click', function() {
+      const postUrl = configToUse?.currentPost?.postUrl || 'https://www.instagram.com/newjeans_official/';
+      console.log('Copying Instagram post URL (mobile):', postUrl);
+      navigator.clipboard.writeText(postUrl).then(() => {
+        // Show success message
+        const btn = this;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `
+          <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+          Copied!
+        `;
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 2000);
+      });
+    });
+  }, 1000);
+  
+  console.log('✅ Instagram menu popup initialized');
+}
+
+// Initialize after DOM is loaded and header is fetched
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, initializing components...');
+  // Wait a bit for include.js to load header
+  setTimeout(() => {
+    console.log('Starting hero slider initialization...');
+    initHeroSlider();
+    initMobileHeroSlider();
+    initInstagramWidget();
+    initCountdown();
+    initInstagramMenu();
+  }, 500);
+});
+</script>
+
+    <!-- Latest Updates Section -->
+    <section class="py-20 bg-black/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Latest Updates</h2>
+            
+            <!-- Desktop Grid Layout -->
+            <div class="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="https://www.instagram.com/reel/DMU1FgcyoGp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="apple-card rounded-2xl p-6 hover:scale-105 transition-all duration-300 block">
+                    <div class="w-full h-48 rounded-xl mb-4 overflow-hidden">
+                        <img src="img/home/debut3rd.jpg" alt="NewJeans Debut 3rd Anniversary" class="w-full h-full object-cover" />
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">NewJeans Debut 3rd Anniversary</h3>
+                    <p class="text-white/70">Stay tuned for our latest album coming soon!</p>
+                </a>
+                <a class="apple-card rounded-2xl p-6 hover:scale-105 transition-all duration-300 block">
+                    <div class="w-full h-48 rounded-xl mb-4 overflow-hidden">
+                        <img src="img/home/courtupdates.jpg" alt="Court Updates" class="w-full h-full object-cover" />
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Court Updates</h3>
+                    <p class="text-white/70">Support NewJeans!</p>
+                </a>
+                <a href="https://youtu.be/p4Z2uH2dFOA?si=jIzBRkIpEngoOuxL" target="_blank" rel="noopener" class="apple-card rounded-2xl p-6 hover:scale-105 transition-all duration-300 block">
+                    <div class="w-full h-48 rounded-xl mb-4 overflow-hidden">
+                        <img src="img/home/jeanszine.jpg" alt="Jeans Zine+" class="w-full h-full object-cover" />
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Jeans Zine+</h3>
+                    <p class="text-white/70">New Jeans Zine+ content available now!</p>
+                </a>
+            </div>
+            
+            <!-- Mobile Horizontal Scroll -->
+            <div class="md:hidden overflow-x-auto pb-4">
+                <div class="flex gap-4 w-max">
+                    <a href="https://www.instagram.com/reel/DMU1FgcyoGp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="apple-card rounded-2xl p-6 min-w-[280px] hover:scale-105 transition-all duration-300 block">
+                        <div class="w-full h-48 rounded-xl mb-4 overflow-hidden">
+                            <img src="img/home/debut3rd.jpg" alt="NewJeans Debut 3rd Anniversary" class="w-full h-full object-cover" />
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">NewJeans Debut 3rd Anniversary</h3>
+                        <p class="text-white/70">Stay tuned for our latest album coming soon!</p>
+                    </a>
+                    <a class="apple-card rounded-2xl p-6 min-w-[280px] hover:scale-105 transition-all duration-300 block">
+                        <div class="w-full h-48 rounded-xl mb-4 overflow-hidden">
+                            <img src="img/home/courtupdates.jpg" alt="Court Updates" class="w-full h-full object-cover" />
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Court Updates</h3>
+                        <p class="text-white/70">Support NewJeans!</p>
+                    </a>
+                    <a href="https://youtu.be/p4Z2uH2dFOA?si=jIzBRkIpEngoOuxL" target="_blank" rel="noopener" class="apple-card rounded-2xl p-6 min-w-[280px] hover:scale-105 transition-all duration-300 block">
+                        <div class="w-full h-48 rounded-xl mb-4 overflow-hidden">
+                            <img src="img/home/jeanszine.jpg" alt="Jeans Zine+" class="w-full h-full object-cover" />
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Jeans Zine+</h3>
+                        <p class="text-white/70">New Jeans Zine+ content available now!</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+    <style>
+        /* Member Avatar Animation Styles */
+        .member-avatar-container {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            overflow: visible;
+        }
+        
+        .member-avatar-container-mobile {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            overflow: visible;
+        }
+        
+        .member-avatar, .member-avatar-mobile {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 1;
+        }
+        
+        /* Animation for each member avatar */
+        .member-avatar:nth-child(1) {
+            animation: memberRotate1 5s infinite;
+        }
+        
+        .member-avatar:nth-child(2) {
+            animation: memberRotate2 5s infinite;
+            animation-delay: 1s;
+        }
+        
+        .member-avatar:nth-child(3) {
+            animation: memberRotate3 5s infinite;
+            animation-delay: 2s;
+        }
+        
+        .member-avatar:nth-child(4) {
+            animation: memberRotate4 5s infinite;
+            animation-delay: 3s;
+        }
+        
+        .member-avatar:nth-child(5) {
+            animation: memberRotate5 5s infinite;
+            animation-delay: 4s;
+        }
+        
+        /* Mobile animations */
+        .member-avatar-mobile:nth-child(1) {
+            animation: memberRotate1 5s infinite;
+        }
+        
+        .member-avatar-mobile:nth-child(2) {
+            animation: memberRotate2 5s infinite;
+            animation-delay: 1s;
+        }
+        
+        .member-avatar-mobile:nth-child(3) {
+            animation: memberRotate3 5s infinite;
+            animation-delay: 2s;
+        }
+        
+        .member-avatar-mobile:nth-child(4) {
+            animation: memberRotate4 5s infinite;
+            animation-delay: 3s;
+        }
+        
+        .member-avatar-mobile:nth-child(5) {
+            animation: memberRotate5 5s infinite;
+            animation-delay: 4s;
+        }
+        
+        /* Keyframe animations for simple fade in/out */
+        @keyframes memberRotate1 {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            20%, 80% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes memberRotate2 {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            20%, 80% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes memberRotate3 {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            20%, 80% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes memberRotate4 {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            20%, 80% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes memberRotate5 {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            20%, 80% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Hover effect to pause animation */
+        .group:hover .member-avatar,
+        .group:hover .member-avatar-mobile {
+            animation-play-state: paused;
+        }
+    </style>
+    <script src="instagram-config.js"></script>
+    <script src="instagram-api.js"></script>
+    <script src="include.js"></script>
+</body>
+</html> 

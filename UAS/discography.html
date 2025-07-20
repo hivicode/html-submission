@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discography - NewJeans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="fonts/sf-pro-display.css">
+    <link rel="stylesheet" href="fonts/noto-sans-kr.css">
+    <link rel="stylesheet" href="global-fix.css">
+    <link rel="icon" type="image/png" href="img/toki.png">
+    
+
+    <style>
+        body { 
+            font-family: 'SF Pro Display', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .apple-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .apple-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-red {
+          background: #d0021b;
+          color: #fff;
+          font-weight: bold;
+          border-radius: 0.75rem;
+          padding: 0.75rem 2.5rem;
+          font-size: 1.1rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          box-shadow: 0 2px 8px 0 #d0021b22;
+          transition: background 0.15s, box-shadow 0.15s;
+        }
+        .btn-red:hover {
+          background: #a80013;
+          color: #fff;
+        }
+        .album-thumb-row {
+          display: flex;
+          gap: 1.5rem;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 2.5rem;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        .album-thumb {
+          width: 72px;
+          height: 72px;
+          border-radius: 0.75rem;
+          border: 2px solid transparent;
+          box-shadow: 0 2px 8px 0 #0002;
+          cursor: pointer;
+          object-fit: cover;
+          transition: border 0.2s, box-shadow 0.2s, transform 0.15s;
+          background: #18181b;
+          margin: 0;
+          padding: 0;
+          display: block;
+        }
+        .album-thumb.active {
+          border: 2.5px solid #d0021b;
+          box-shadow: 0 4px 16px 0 #d0021b33;
+          transform: none;
+          margin: 0;
+          padding: 0;
+        }
+        .album-thumb:focus {
+          outline: none;
+        }
+        .album-thumb {
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        /* Prevent text selection on album thumbnails specifically */
+        .album-thumb {
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          -webkit-touch-callout: none;
+          -webkit-tap-highlight-color: transparent;
+        }
+        .album-thumb:focus {
+          outline: none;
+        }
+        /* Prevent cursor on discography page elements */
+        .album-thumb-row-wrapper,
+        .album-thumb-row,
+        #album-card,
+        #track-list,
+        .track-row {
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        .btn-mono {
+          background: #18181b;
+          color: #fff;
+          font-weight: bold;
+          border-radius: 0.75rem;
+          padding: 0.75rem 2.5rem;
+          font-size: 1.1rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          box-shadow: 0 2px 8px 0 #0002;
+          border: 1.5px solid #fff;
+          transition: background 0.15s, box-shadow 0.15s, color 0.15s;
+        }
+        .btn-mono:hover {
+          background: #fff;
+          color: #18181b;
+          border-color: #fff;
+        }
+        .btn-apple {
+          background: #d0021b;
+          color: #fff;
+          font-weight: bold;
+          border-radius: 0.75rem;
+          padding: 0.75rem 2.5rem;
+          font-size: 1.1rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          box-shadow: 0 2px 8px 0 #d0021b22;
+          border: none;
+          transition: background 0.15s, box-shadow 0.15s, color 0.15s;
+        }
+        .btn-apple:hover {
+          background: #a80013;
+          color: #fff;
+        }
+        .track-active {
+          background: #d0021b22 !important;
+          color: #fff !important;
+        }
+        .album-title-accent {
+          color: #d0021b;
+        }
+        .album-thumb-row-wrapper {
+          width: 100vw;
+          display: flex;
+          justify-content: center;
+          position: relative;
+          z-index: 10;
+          background: #000;
+          padding-top: 0.25rem;
+          padding-bottom: 0.25rem;
+          margin-bottom: 0;
+        }
+        .track-play-btn {
+          width: 2rem;
+          height: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 0.5rem;
+          background: transparent;
+          color: #fff;
+          opacity: 0;
+          transition: opacity 0.15s;
+          cursor: pointer;
+          border: none;
+          margin-right: 0.5rem;
+        }
+        .track-row:hover .track-play-btn,
+        .track-row.track-active .track-play-btn {
+          opacity: 1;
+        }
+        .track-row .track-num {
+          width: 2rem;
+          text-align: right;
+          color: #bbb;
+          font-variant-numeric: tabular-nums;
+          margin-right: 0.5rem;
+          display: inline-block;
+          transition: color 0.15s;
+        }
+        .track-row.track-active {
+          background: #d0021b !important;
+          color: #fff !important;
+        }
+        .track-row.track-active .track-num {
+          color: #fff;
+        }
+        .track-row {
+          transition: background 0.15s, color 0.15s;
+        }
+        .track-num-btn {
+          width: 2rem;
+          height: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 0.5rem;
+          background: transparent;
+          color: #bbb;
+          font-variant-numeric: tabular-nums;
+          font-weight: 500;
+          font-size: 1rem;
+          border: none;
+          margin-right: 0.5rem;
+          transition: color 0.15s;
+          cursor: pointer;
+          position: relative;
+          z-index: 1;
+        }
+        .track-row:hover .track-num-btn,
+        .track-row.track-active .track-num-btn {
+          color: #fff;
+        }
+        .track-num-btn .icon-play,
+        .track-num-btn .icon-pause {
+          display: none;
+        }
+        .track-row.track-active .track-num-btn .track-num-text {
+          display: none;
+        }
+        .track-row.track-active .track-num-btn .icon-pause {
+          display: inline;
+        }
+        .track-row:not(.track-active):hover .track-num-btn .track-num-text {
+          display: none;
+        }
+        .track-row:not(.track-active):hover .track-num-btn .icon-play {
+          display: inline;
+        }
+        .track-row:not(.track-active):not(:hover) .track-num-btn .track-num-text {
+          display: inline;
+        }
+        .track-row:not(.track-active):not(:hover) .track-num-btn .icon-play {
+          display: none;
+        }
+        .track-row.track-active .track-timestamp {
+          color: #fff !important;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <div id="header"></div>
+    <!-- Header -->
+    <section class="pt-32 pb-12 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight">
+                Discography
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                Explore NewJeans' musical journey through their albums, singles, and special releases.
+            </p>
+        </div>
+    </section>
+
+    <div class="album-thumb-row-wrapper">
+      <div class="album-thumb-row" id="album-thumbs"></div>
+                        </div>
+    <section class="bg-black flex flex-col items-start justify-start py-0">
+      <!-- Dynamic album card -->
+      <div class="flex justify-center items-start w-full mt-2">
+        <div id="album-card" class="w-full max-w-5xl min-h-[480px] mb-16"></div>
+                    </div>
+      <audio id="audio-player" class="hidden"></audio>
+    </section>
+    <script>
+const albums = [
+  {
+    cover: 'img/discography/new jeans.jpg',
+    title: "NewJeans 1st EP 'New Jeans'",
+    artist: 'NewJeans',
+    genre: 'K-POP',
+    year: '2022',
+    desc: "The quintet's low-key approach to K-pop pays off on their debut.",
+    copyright: 'August 1, 2022 · 4 Songs, 12 minutes',
+    copyright2: '© 2022 ADOR Co., Ltd.',
+    tracks: [
+      { title: 'Attention', duration: '3:00', src: 'audio/New Jeans (2022)/NewJeans - Attention.mp3' },
+      { title: 'Hype Boy', duration: '2:59', src: 'audio/New Jeans (2022)/NewJeans - Hype Boy.mp3' },
+      { title: 'Cookie', duration: '3:55', src: 'audio/New Jeans (2022)/NewJeans - Cookie.mp3' },
+      { title: 'Hurt', duration: '2:57', src: 'audio/New Jeans (2022)/NewJeans - Hurt.mp3' },
+    ]
+  },
+  {
+    cover: 'img/discography/omg.jpg',
+    title: 'OMG',
+    artist: 'NewJeans',
+    genre: 'K-POP',
+    year: '2023',
+    desc: "Debuting with a self-titled EP whose summery vibe sent it straight to the top of the charts, K-pop trendsetters NewJeans light up long winter nights with warm voices and glowing beats on their follow-up single album, OMG. The title track, fuelled by synth-hued yearning coupled to an irresistible singalong hook, overflows with romantic euphoria, while 'Ditto' deftly conjures '90s nostalgia with a Gen-Z take on Baltimore club. Between the big-hearted vocals and the breakbeats, the quintet deliver an aural pick-me-up that's both potent and expertly crafted.",
+    copyright: 'January 2, 2023 · 2 Songs',
+    copyright2: '© 2023 ADOR Co., Ltd.',
+    tracks: [
+      { title: 'OMG', duration: '3:32', src: 'audio/OMG (2023)/NewJeans - OMG.mp3' },
+      { title: 'Ditto', duration: '3:06', src: 'audio/OMG (2023)/NewJeans - Ditto.mp3' },
+    ]
+  },
+  {
+    cover: 'img/discography/get up.jpg',
+    title: 'Get Up',
+    artist: 'NewJeans',
+    genre: 'K-POP',
+    year: '2023',
+    desc: 'In 2022, NewJeans dropped into the saturated K-pop industry with zero pre-promotion. The music video for "Attention" combined breezy R&B-inspired pop, immaculate Y2K-nostalgic visuals, and the teen-girl cool of Minji, Haerin, Hanni, Danielle, and Hyein. Now they\'re back with their second EP, a mini-album featuring six short tracks that reasserts NewJeans\' dominance in the fourth-generation K-pop scene. Sonically, Get Up doubles down on NewJeans\' commitment to noughts-era R&B paired with electronic dance elements. Pre-release singles "Super Shy"-which member Hanni says reminds her of flying through space on a rocket ship-and Powerpuff Girls collab "New Jeans" are peppy, synth-driven bops that fans of "Ditto" will love. But the girls have never been as solemn as they are on "Cool With You," a UK garage track, and "Get Up," two songs that could be teasing an evolution of their vibe. Tying the sophomore project together are the versatile, finely tuned vocals of the young members, which continue to elevate NewJeans\' music from forgettable pop to something more textured-and serve as a tribute to the teen-girl interiority that is at the center of NewJeans\' music and story.',
+    copyright: 'July 21, 2023 · 6 Songs',
+    copyright2: '© 2023 ADOR Co., Ltd.',
+    tracks: [
+      { title: 'New Jeans', duration: '2:26', src: 'audio/Get Up (2023)/NewJeans - New Jeans.mp3' },
+      { title: 'Super Shy', duration: '2:34', src: 'audio/Get Up (2023)/NewJeans - Super Shy.mp3' },
+      { title: 'ETA', duration: '2:36', src: 'audio/Get Up (2023)/NewJeans - ETA.mp3' },
+      { title: 'Cool With You', duration: '2:43', src: 'audio/Get Up (2023)/NewJeans - Cool With You.mp3' },
+      { title: 'Get Up', duration: '1:59', src: 'audio/Get Up (2023)/NewJeans - Get Up.mp3' },
+      { title: 'ASAP', duration: '2:13', src: 'audio/Get Up (2023)/NewJeans - ASAP.mp3' },
+    ]
+  },
+  {
+    cover: 'img/discography/how sweet.jpg',
+    title: 'How Sweet',
+    artist: 'NewJeans',
+    genre: 'K-POP',
+    year: '2024',
+    desc: 'The restless K-pop squad go vintage with a brew of electro and Miami bass.',
+    copyright: 'May 24, 2024 · 4 Songs',
+    copyright2: '© 2024 ADOR Co., Ltd.',
+    tracks: [
+      { title: 'How Sweet', duration: '3:12', src: 'audio/How Sweet (2024)/NewJeans - How Sweet.mp3' },
+      { title: 'Bubble Gum', duration: '3:18', src: 'audio/How Sweet (2024)/NewJeans - Bubble Gum.mp3' },
+      { title: 'How Sweet (Instrumental)', duration: '3:12', src: 'audio/How Sweet (2024)/NewJeans - How Sweet (Instrumental).mp3' },
+      { title: 'Bubble Gum (Instrumental)', duration: '3:18', src: 'audio/How Sweet (2024)/NewJeans - Bubble Gum (Instrumental).mp3' },
+    ]
+  },
+  {
+    cover: 'img/discography/supernatural.jpg',
+    title: 'Supernatural',
+    artist: 'NewJeans',
+    genre: 'J-POP & K-POP',
+    year: '2024',
+    desc: 'Japanese and Korean pop crossover with Murakami collaboration.',
+    copyright: 'September 20, 2024 · 4 Songs',
+    copyright2: '© 2024 ADOR Co., Ltd.',
+    tracks: [
+      { title: 'Supernatural', duration: '3:10', src: 'audio/Supernatural (2024)/NewJeans - Supernatural.mp3' },
+      { title: 'Right Now', duration: '3:05', src: 'audio/Supernatural (2024)/NewJeans - Right Now.mp3' },
+      { title: 'Supernatural (Instrumental)', duration: '3:10', src: 'audio/Supernatural (2024)/NewJeans - Supernatural (Instrumental).mp3' },
+      { title: 'Right Now (Instrumental)', duration: '3:05', src: 'audio/Supernatural (2024)/NewJeans - Right Now (Instrumental).mp3' },
+    ]
+  },
+];
+let currentAlbum = 0;
+function renderAlbumThumbs() {
+  const row = document.getElementById('album-thumbs');
+  row.innerHTML = albums.map((a, i) => `
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;">
+      <img src="${a.cover}" class="album-thumb${i===currentAlbum?' active':''}" data-idx="${i}" alt="${a.title}">
+      <span style="font-size:0.85rem;color:#aaa;text-align:center;">${a.year}</span>
+                        </div>
+  `).join('');
+  row.querySelectorAll('.album-thumb').forEach(img => {
+    img.onclick = () => { currentAlbum = +img.dataset.idx; renderAlbumCard(); renderAlbumThumbs(); };
+  });
+}
+function renderAlbumCard() {
+  const a = albums[currentAlbum];
+  // Batasi deskripsi 2-3 baris, jika lebih tampilkan tombol More
+  const descMaxLines = 2;
+  const descWords = a.desc.split(' ');
+  let shortDesc = a.desc;
+  let isLong = false;
+  if (descWords.length > 30) {
+    shortDesc = descWords.slice(0, 30).join(' ') + '...';
+    isLong = true;
+  }
+  document.getElementById('album-card').innerHTML = `
+    <div class="w-full max-w-5xl min-h-[480px] flex flex-col md:flex-row bg-black/80 rounded-3xl shadow-2xl overflow-hidden border border-neutral-800">
+      <div class="md:w-1/2 flex items-center justify-center bg-neutral-950 p-10 min-h-[480px]">
+        ${a.title.includes('Get Up') ? `<video src="img/discography/animated album art/getup.mp4" autoplay loop muted playsinline class="rounded-2xl shadow-2xl w-80 h-80 object-cover aspect-square border-4 border-neutral-800"></video>` :
+          a.title.includes("'New Jeans'") ? `<video src="img/discography/animated album art/newjeans.mp4" autoplay loop muted playsinline class="rounded-2xl shadow-2xl w-80 h-80 object-cover aspect-square border-4 border-neutral-800"></video>` :
+          a.title.includes('Supernatural') ? `<video src="img/discography/animated album art/supernatural.mp4" autoplay loop muted playsinline class="rounded-2xl shadow-2xl w-80 h-80 object-cover aspect-square border-4 border-neutral-800"></video>` :
+          `<img src="${a.cover}" alt="${a.title} Cover" class="rounded-2xl shadow-2xl w-80 h-80 object-cover aspect-square border-4 border-neutral-800">`
+        }
+      </div>
+      <div class="md:w-1/2 flex flex-col justify-between p-10 min-h-[480px]">
+        <div>
+          <div class="uppercase text-xs tracking-widest text-gray-400 font-semibold mb-2">ALBUM</div>
+          <h1 class="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">${a.title.replace(/('New Jeans')/, '<span class=\'album-title-accent\'>$1</span>')}</h1>
+          <div class="flex items-center gap-3 mb-2">
+            <span class="album-title-accent text-lg font-semibold">${a.artist}</span>
+            <span class="text-gray-500">•</span>
+            <span class="text-gray-400">${a.genre}</span>
+            <span class="text-gray-500">•</span>
+            <span class="text-gray-400">${a.year}</span>
+                            </div>
+          <div class="text-gray-300 mb-6 text-base" id="album-desc">
+            ${isLong ? `<span id='desc-short'>${shortDesc}</span><span id='desc-full' style='display:none;'>${a.desc}</span> <button id='desc-more' class='underline text-gray-400 hover:text-white transition'>More</button><button id='desc-less' class='underline text-gray-400 hover:text-white transition' style='display:none;'>Less</button>` : a.desc}
+                            </div>
+          <div class="flex gap-4 mb-8">
+            <button class="btn-red" id="play-album-btn">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              Play
+            </button>
+            <button class="btn-red" id="shuffle-album-btn">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v6h6M20 20v-6h-6M19 5L5 19"/></svg>
+              Shuffle
+            </button>
+          </div>
+                        </div>
+        <div class="bg-neutral-900/80 rounded-xl p-4 mt-2 shadow-inner">
+          <ol id="track-list">
+            ${a.tracks.map((t,i)=>`
+              <li class="track-row flex items-center justify-between py-3 px-3 rounded-lg font-medium cursor-pointer text-gray-200" data-src="${t.src}" data-idx="${i}">
+                <div class="flex items-center gap-2">
+                  <button class="track-num-btn" tabindex="-1" aria-label="Play/Pause">
+                    <span class="track-num-text">${i+1}</span>
+                    <svg class="icon-play w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="icon-pause w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+                  </button>
+                  <span>${t.title}</span>
+                </div>
+                <span class="text-gray-400 track-timestamp" data-duration="${t.duration}">${t.duration}</span>
+              </li>`).join('')}
+          </ol>
+          <div class="mt-6 text-gray-400 text-xs text-right">${a.copyright}<br>${a.copyright2}</div>
+                        </div>
+                    </div>
+                </div>
+  `;
+  // More/Less desc logic
+  if (isLong) {
+    const moreBtn = document.getElementById('desc-more');
+    const lessBtn = document.getElementById('desc-less');
+    const shortSpan = document.getElementById('desc-short');
+    const fullSpan = document.getElementById('desc-full');
+    moreBtn.onclick = () => {
+      shortSpan.style.display = 'none';
+      fullSpan.style.display = '';
+      moreBtn.style.display = 'none';
+      lessBtn.style.display = '';
+    };
+    lessBtn.onclick = () => {
+      shortSpan.style.display = '';
+      fullSpan.style.display = 'none';
+      moreBtn.style.display = '';
+      lessBtn.style.display = 'none';
+    };
+  }
+  // Audio player logic
+  const audio = document.getElementById('audio-player');
+  const trackEls = document.querySelectorAll('#track-list li');
+  let currentTrackIdx = -1;
+  let playingIdx = -1;
+
+  function playTrack(i) {
+    resetTimestamps(); // Reset semua timestamp ke durasi aslinya
+    trackEls.forEach((el, j) => {
+      el.classList.toggle('track-active', j === i);
+      const btn = el.querySelector('.track-num-btn');
+      if (j === i) {
+        btn.querySelector('.track-num-text').style.display = 'none';
+        btn.querySelector('.icon-play').style.display = 'none';
+        btn.querySelector('.icon-pause').style.display = 'inline';
+      } else {
+        btn.querySelector('.track-num-text').style.display = '';
+        btn.querySelector('.icon-play').style.display = '';
+        btn.querySelector('.icon-pause').style.display = 'none';
+      }
+    });
+    trackEls[i].classList.add('track-active');
+    const btn = trackEls[i].querySelector('.track-num-btn');
+    btn.querySelector('.track-num-text').style.display = 'none';
+    btn.querySelector('.icon-play').style.display = 'none';
+    btn.querySelector('.icon-pause').style.display = 'inline';
+    audio.src = trackEls[i].getAttribute('data-src');
+    window.currentAudioSrc = audio.src; // Simpan src global
+    audio.play();
+    currentTrackIdx = i;
+    playingIdx = i;
+  }
+
+  // Event audio juga update window.currentAudioSrc
+  audio.onplay = () => {
+    window.currentAudioSrc = audio.src;
+    if (playingIdx >= 0) {
+      const li = trackEls[playingIdx];
+      const btn = li.querySelector('.track-num-btn');
+      btn.querySelector('.track-num-text').style.display = 'none';
+      btn.querySelector('.icon-play').style.display = 'none';
+      btn.querySelector('.icon-pause').style.display = 'inline';
+    }
+  };
+  audio.onpause = () => {
+    window.currentAudioSrc = audio.src;
+    if (playingIdx >= 0) {
+      const li = trackEls[playingIdx];
+      const btn = li.querySelector('.track-num-btn');
+      btn.querySelector('.track-num-text').style.display = 'none';
+      btn.querySelector('.icon-play').style.display = 'inline';
+      btn.querySelector('.icon-pause').style.display = 'none';
+    }
+  };
+
+  // Restore highlight (pindahkan ke paling akhir renderAlbumCard)
+  setTimeout(() => {
+    const curSrc = window.currentAudioSrc || audio.src;
+    function normalizePath(p) {
+      try {
+        return p ? decodeURIComponent(p.replace(/\\/g, '/').split('/').slice(-2).join('/').toLowerCase()) : '';
+      } catch (e) {
+        return p ? p.replace(/\\/g, '/').split('/').slice(-2).join('/').toLowerCase() : '';
+      }
+    }
+    const allPaths = Array.from(trackEls).map(li => normalizePath(li.getAttribute('data-src')));
+    console.log('restore', normalizePath(curSrc), allPaths);
+    const idx = allPaths.findIndex(p => p === normalizePath(curSrc));
+    if (idx !== -1) {
+      playingIdx = idx;
+      currentTrackIdx = idx;
+      trackEls.forEach((el, j) => {
+        el.classList.toggle('track-active', j === idx);
+        const btn = el.querySelector('.track-num-btn');
+        if (j === idx) {
+          btn.querySelector('.track-num-text').style.display = 'none';
+          if (!audio.paused) {
+            btn.querySelector('.icon-play').style.display = 'none';
+            btn.querySelector('.icon-pause').style.display = 'inline';
+          } else {
+            btn.querySelector('.icon-play').style.display = 'inline';
+            btn.querySelector('.icon-pause').style.display = 'none';
+          }
+        } else {
+          btn.querySelector('.track-num-text').style.display = '';
+          btn.querySelector('.icon-play').style.display = '';
+          btn.querySelector('.icon-pause').style.display = 'none';
+        }
+      });
+    }
+  }, 0);
+
+  trackEls.forEach((li, idx) => {
+    const playBtn = li.querySelector('.track-num-btn');
+    const iconPlay = playBtn.querySelector('.icon-play');
+    const iconPause = playBtn.querySelector('.icon-pause');
+    function setIcons(state) {
+      iconPlay.style.display = 'none';
+      iconPause.style.display = 'none';
+      if (state === 'play') iconPlay.style.display = 'inline';
+      if (state === 'pause') iconPause.style.display = 'inline';
+    }
+    // Play/pause via button
+    playBtn.onclick = (e) => {
+      e.stopPropagation();
+      if (playingIdx === idx && !audio.paused) {
+        audio.pause();
+        setIcons('play');
+      } else if (playingIdx === idx && audio.paused) {
+        audio.play(); // Lanjutkan dari posisi terakhir
+      } else {
+        playTrack(idx); // Track baru, mulai dari awal
+      }
+    };
+    // Play via row click
+    li.onclick = (e) => {
+      if (e.target === playBtn || playBtn.contains(e.target)) return;
+      playTrack(idx);
+    };
+  });
+  // Play/Shuffle button logic
+  document.getElementById('play-album-btn').onclick = () => {
+    const firstPlayable = a.tracks.findIndex(t => t.src && t.src !== 'dummy.mp3');
+    playTrack(firstPlayable >= 0 ? firstPlayable : 0);
+  };
+  document.getElementById('shuffle-album-btn').onclick = () => {
+    const playable = a.tracks.map((t,i) => t.src && t.src !== 'dummy.mp3' ? i : null).filter(i => i !== null);
+    const idx = playable.length ? playable[Math.floor(Math.random()*playable.length)] : 0;
+    playTrack(idx);
+  };
+  // Timestamp update logic
+  let timestampInterval = null;
+  function updateTimestamp() {
+    if (playingIdx >= 0) {
+      const li = trackEls[playingIdx];
+      const ts = li.querySelector('.track-timestamp');
+      if (audio.duration && !isNaN(audio.duration)) {
+        const cur = Math.floor(audio.currentTime);
+        const min = Math.floor(cur/60);
+        const sec = (cur%60).toString().padStart(2,'0');
+        const dur = ts.dataset.duration;
+        ts.textContent = `${min}:${sec} / ${dur}`;
+      }
+    }
+  }
+  function resetTimestamps() {
+    trackEls.forEach((li, idx) => {
+      const ts = li.querySelector('.track-timestamp');
+      ts.textContent = ts.dataset.duration;
+    });
+  }
+  audio.ontimeupdate = updateTimestamp;
+  audio.onended = () => {
+    if (playingIdx >= 0) {
+      const li = trackEls[playingIdx];
+      const btn = li.querySelector('.track-num-btn');
+      btn.querySelector('.track-num-text').style.display = '';
+      btn.querySelector('.icon-play').style.display = '';
+      btn.querySelector('.icon-pause').style.display = 'none';
+    }
+    resetTimestamps();
+    if (currentTrackIdx >= 0 && currentTrackIdx < trackEls.length - 1) {
+      trackEls[currentTrackIdx + 1].click();
+    }
+  };
+  // Reset timestamp saat ganti album
+  resetTimestamps();
+}
+renderAlbumThumbs();
+renderAlbumCard();
+</script>
+    <div id="footer"></div>
+    <script src="include.js"></script>
+</body>
+</html> 
